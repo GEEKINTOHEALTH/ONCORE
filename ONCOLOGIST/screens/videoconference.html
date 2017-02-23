@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+		<link href='https://fonts.googleapis.com/css?family=Lato:300,900' rel='stylesheet' type='text/css'>
+
+		<style type="text/css" media="screen">
+			html, body {
+				-webkit-font-smoothing: antialiased;
+				height: 100%;
+				overflow: hidden;
+				font-family: 'Lato', sans-serif;
+				overflow: hidden;
+				-webkit-overflow-scrolling: touch;
+			}
+
+			body {
+				background: #333;
+			}
+
+			#appearin-room {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				height: 100%;
+				bottom: 0px;
+				right: 0px;
+				width: 65%;
+			}
+			#right-container {
+				position: absolute;
+				top: 60px;
+				bottom: 10px;
+				right: 10px;
+				width: 32%;
+				padding: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<iframe id="appearin-room">
+			&nbsp;
+		</iframe>
+		<div id="right-container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+
+					<h1 style="color:white;">ICORE
+					<br />
+					<small>Video Conference</small></h1>
+
+					<a  href="#"> <i class="fa fa-video-camera fa-4x" style="color:orange;"></i></a>
+					<br />
+
+					<p class="" style=";margin-top: 10px;color:white;">
+						When ready, press the enter room button to begin the conference.More than one person can join the conference.
+					</p>
+					<hr />
+					<p class="" style=";margin-top: 10px;color:white;">
+						Send the link to the participants by clicking on the Create invitaion button.
+						<br />
+					</p>
+
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">EMAIL</span>
+						<input name="conf_user" id="conf_user" type="text" class="form-control text-center" placeholder="Enter email" aria-describedby="basic-addon1">
+					</div>
+					<br />
+					<br />
+					<button id="video_link" class="btn btn-primary btn-md">
+						Create invitation link
+					</button>
+					<br />
+					<br />
+					<a id="mail-link" href=""><span class="label label-danger label-lg" id="generated-link"></span></a>
+					<br />
+
+				</div>
+			</div>
+
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="//developer.appear.in/scripts/appearin-sdk.0.0.4.min.js"></script>
+		<script>
+			var ROOM_NAME = "";
+
+			$(document).ready(function() {
+				var AppearIn = window.AppearIn || require('appearin-sdk');
+				var appearin = new AppearIn();
+				var isWebRtcCompatible = appearin.isWebRtcCompatible();
+				appearin.getRandomRoomName().then(function(roomName) {
+					//alert(roomName);
+					ROOM_NAME = roomName;
+					var iframe = document.getElementById("appearin-room");
+					appearin.addRoomToIframe(iframe, roomName);
+
+					//$("#video_link").attr("href", mailString);
+
+					$("#video_link").click(function() {
+						var videoInviteMessage = "http://appear.in" + ROOM_NAME;
+						var formattedBody = " Click this link to join conference \n " + videoInviteMessage;
+						var mailString = "mailto:" + $("#conf_user").val() + "?Subject=" + encodeURIComponent(formattedBody);
+						$("#mail-link").attr("href", mailString);
+						$("#generated-link").html(videoInviteMessage);
+					});
+
+				});
+			});
+		</script>
+	</body>
+</html>

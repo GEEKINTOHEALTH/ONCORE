@@ -1,0 +1,169 @@
+<div class="container">
+	<div class="row  centered">
+		<h3>Welcome</h3>
+		<a id="addButton" role="button" class="btn btn-primary" >Add Item</a>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column" id="table_container"></div>
+	</div>
+</div>
+
+<script id="table_template" type="text/template">
+	<table class="table table-hover table-condensed">
+	<thead>
+	<tr>
+	<th> # </th>
+	<th> Name </th>
+	<th> Description </th>
+	<th> Action </th>
+	</tr>
+	</thead>
+	<tbody >
+	{{#rows}}
+	<tr>
+	<td> {{id}} </td>
+	<td> {{name}} </td>
+	<td> {{description}} </td>
+	<td> <a row-id="{{id}}" role="button" class="btn btn-sm btn-primary edit_button">Edit</a><a row-id="{{id}}" role="button" class="btn btn-sm btn-danger delete_button">Delete</a> </td>
+	</tr>
+	{{/rows}}
+
+	</tbody>
+
+	</table>
+
+</script>
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="modal fade" id="modal_form" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								X
+							</button>
+							<h4 class="modal-title" id="myModalLabel"> Modal title </h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" id="item_form">
+								<input id="item_id" name="item_id" type="hidden">
+								<fieldset>
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="name">Enter Name</label>
+										<div class="col-md-4">
+											<input id="name" name="name" placeholder="enter name as text" class="form-control input-md" type="text">
+										</div>
+									</div>
+
+									<!-- Textarea -->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="desc">Enter a Description</label>
+										<div class="col-md-4">
+											<textarea class="form-control" id="desc" name="desc"></textarea>
+										</div>
+									</div>
+
+									<!-- File Button -->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="filebutton">Attach</label>
+										<div class="col-md-4">
+											<input id="filebutton" name="filebutton" class="input-file" type="file">
+										</div>
+									</div>
+
+								</fieldset>
+							</form>
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+							<button id="saveButton" type="button" class="btn btn-primary">
+								Save
+							</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var screenItems = new LocalTable("user.todo_table");
+
+	function renderTableUI(data) {
+		var template = $('#table_template').html();
+		var html = Mustache.to_html(template, {
+			rows : data
+		});
+		$("#table_container").html(html).fadeIn('slow');
+	}
+
+	function refreshView() {
+		renderTableUI(screenItems.getRows());
+	}
+
+	(function() {
+		screenItems.load();
+
+		renderTableUI(screenItems.getRows());
+
+		$("#addButton").click(function() {
+			$("#item_id").val('');
+			$('#item_form').resetForm();
+			$('#modal_form').modal('show');
+		});
+
+		$("#saveButton").click(function() {
+			var currentId = $("#item_id").val();
+			var oneItem = {};
+			if (currentId != '') {
+				oneItem = screenItems.findRow(currentId);
+				console.log("Existing item case.");
+			} else {
+				oneItem.id = new Date().getTime();
+				screenItems.addRow(oneItem);
+				console.log("New item case");
+			}
+			oneItem.name = $("#name").val();
+			oneItem.description = $("#desc").val();
+			oneItem.attachement = "attachement " + new Date();
+			screenItems.save();
+			$("#item_id").val('');
+			// Update View
+			refreshView();
+			$('#modal_form').modal('hide');
+			$('#item_form').resetForm();
+		});
+
+		$('body').on('click', '.edit_button', function(event) {
+			event.preventDefault();
+			var selectedId = $(this).attr('row-id');
+			var selectedObject = screenItems.findRow(selectedId);
+			$("#name").val(selectedObject.name);
+			$("#desc").val(selectedObject.description);
+			$("#item_id").val(selectedObject.id);
+			$('#modal_form').modal('show');
+		});
+
+		$('body').on('click', '.delete_button', function(event) {
+			event.preventDefault();
+			var selectedId = $(this).attr('row-id');
+			screenItems.deleteRow(selectedId);
+			screenItems.save();
+			refreshView();
+		});
+	})(); 
+</script>
+

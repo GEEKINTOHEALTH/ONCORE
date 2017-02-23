@@ -1,0 +1,98 @@
+<style type="text/css">
+	/*Wizard*/
+	.list-group-item.success, .list-group-item.success:hover, .list-group-item.success:focus {
+		background-color: #7aba7b;
+		border-color: #7aba7b;
+		color: #ffffff;
+	}
+
+	.list-group-item.success > h4 {
+		color: #ffffff;
+	}
+
+	.list-group-item.error, .list-group-item.error:hover, .list-group-item.error:focus {
+		background-color: #d59392;
+		border-color: #d59392;
+		color: #ffffff;
+	}
+
+	.list-group-item.error > h4 {
+		color: #ffffff;
+	}
+</style>
+
+<div class="container" style="margin-top: 50px;margin-bottom: 100px;">
+	<div class="row">
+		<div class="col-xs-3 text-left">
+			<div class="list-group wizard-menu panel-body" style="background: white;border:1px solid #dcdcdc">
+				<a href="#" class="list-group-item active step-1-menu" data-for="screens/case.html"> <h4 class="list-group-item-heading">1. Case</h4>
+				<p class="list-group-item-text">
+					Case summary.
+				</p> </a>
+				<a href="#" class="list-group-item step-2-menu" data-for="screens/treatments.html"> <h4 class="list-group-item-heading">2. Treatments</h4>
+				<p class="list-group-item-text">
+					Any past treatments
+				</p> </a>
+				<a href="#" class="list-group-item step-3-menu" data-for="screens/doctornotes.html"> <h4 class="list-group-item-heading">3. Doctor Notes</h4>
+				<p class="list-group-item-text">
+					Notes from your doctor.
+				</p> </a>
+				<a href="#" class="list-group-item step-4-menu" data-for="screens/pathology.html"> <h4 class="list-group-item-heading">4. Pathology</h4>
+				<p class="list-group-item-text">
+					Pathology reports.
+				</p> </a>
+				<a href="#" class="list-group-item step-5-menu" data-for="screens/imaging_reports.html"> <h4 class="list-group-item-heading">5. Imaging</h4>
+				<p class="list-group-item-text">
+					Imaging reports.
+				</p> </a>
+				<a href="#" class="list-group-item step-6-menu" data-for="screens/lab_reports.html"> <h4 class="list-group-item-heading">6. Lab results</h4>
+				<p class="list-group-item-text">
+					Lab reports.
+				</p> </a>
+				<a href="#" class="list-group-item step-6-menu" data-for="screens/misc_reports.html"> <h4 class="list-group-item-heading">7. Misc.</h4>
+				<p class="list-group-item-text">
+					Anh other reports.
+				</p> </a>
+			</div>
+		</div>
+		<div class="col-xs-9">
+			<div class="wizard-content" style="border:1px solid #dcdcdc;background-color: white;padding-bottom: 50px;"></div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		loadDataOnClick();
+		selectTab('.step-1-menu');
+	});
+
+	function selectTab(step_name) {
+		var wizardButtons = $('.wizard-menu .list-group-item');
+		var wizardContent = $('.wizard-content');
+		wizardButtons.removeClass('active');
+
+		var selectionButton = $(step_name);
+		$(selectionButton).addClass('active');
+		var dataFor = $(selectionButton).attr('data-for');
+		$(wizardContent).hide().load(dataFor).fadeIn('slow');
+	}
+
+	function loadDataOnClick() {
+		var wizardButtons = $('.wizard-menu .list-group-item');
+		var wizardContent = $('.wizard-content');
+
+		wizardButtons.on('click', function(event) {
+			event.preventDefault();
+			//Change active state
+			wizardButtons.removeClass('active');
+			$(this).addClass('active');
+
+			//Get "data-for" attribute and find element
+			var dataFor = $(this).attr('data-for');
+			//Path.dispatch("");
+
+			$(wizardContent).load(dataFor);
+		});
+	}
+</script>

@@ -1,0 +1,56 @@
+<div class="container">
+	<div class="row" style="margin-top:100px;">
+		<div class="col-xs-8 col-xs-offset-2">
+			<div class="input-group">
+				<div class="input-group-btn search-panel">
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						<span id="search_concept">Filter by &nbsp;</span><span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<a href="#Doctor">Doctor&nbsp;</a>
+						</li>
+						<li>
+							<a href="#Specialist">Specialist&nbsp;</a>
+						</li>
+					</ul>
+				</div>
+				<input type="hidden" name="search_type"  id="search_type" value="all">
+				<input type="text" class="form-control" name="search_string" id="search_string" placeholder="search for..">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" id="search_button">
+						<span class="glyphicon glyphicon-search"></span>
+					</button> </span>
+			</div>
+		</div>
+	</div>
+</div>
+<br /><br />
+<div class="container" id="search_results"></div>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(e) {
+		$('.search-panel .dropdown-menu').find('a').click(function(e) {
+			e.preventDefault();
+			var param = $(this).attr("href").replace("#", "");
+			//console.log(param);
+			var concept = $(this).text();
+			$('.search-panel span#search_concept').text(concept);
+			$('.input-group #search_type').val(param);
+		});
+
+		$("#search_button").click(function() {
+			var search_type = $('#search_type').val();
+			var search_string = $('#search_string').val();
+			console.log(search_type);
+			console.log(search_string);
+			$('#search_results').load("screens/mydocs.html");
+			
+			/*$.getJSON("http://api.v3.factual.com/t/healthcare-providers-us?KEY=Tn2jSqbqXpdYaLOdV3sSTINVKJMot6tUcVxEBO61", function(result) {
+				console.log(result);
+			});*/
+		});
+	});
+
+</script>
+

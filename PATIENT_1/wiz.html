@@ -1,0 +1,139 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap.vertical-tabs.min.css">
+		<style type="text/css" media="screen">
+			.tab-pane {
+				background-color: white;
+				border: 1px dotted silver;
+				padding: 10px;
+			}
+			.nav-tabs {
+				background-color: #dcdcdc;
+				color: black;
+			}
+			.nav-tabs > li > a {
+				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+				color: black;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="container" style="background-color: none;margin-top: 50px;">
+			<div class="row" style="min-height:600px;margin-top: 20px;">
+				<div class="col-xs-3">
+					<ul class="nav nav-tabs tabs-left">
+						<li class="active">
+							<a href="#step_1" data-toggle="tab">STEP 1
+							<br>
+							<small>Provide summary of your medical condition and your questions for our expert MD</small></a>
+						</li>
+						<li>
+							<a href="#step_2" data-toggle="tab">STEP 2
+							<br>
+							<small>Provide or attach your Doctors medical notes</small> </a>
+						</li>
+						<li>
+							<a href="#step_3" data-toggle="tab">STEP 3
+							<br>
+							<small>Attach pathology reports</small> </a>
+						</li>
+						<li>
+							<a href="#step_4" data-toggle="tab">STEP 4
+							<br>
+							<small>Attach Imaging study and reports (MRI, CT, X-RAY))</small> </a>
+						</li>
+						<li>
+							<a href="#step_4" data-toggle="tab">STEP 5
+							<br>
+							<small>Attach lab results</small> </a>
+						</li>
+						<li>
+							<a href="#step_4" data-toggle="tab">STEP 6
+							<br>
+							<small>Attach any other information relevant to your medical condition</small> </a>
+						</li>
+						<li>
+							<a href="#step_4" data-toggle="tab">STEP 7
+							<br>
+							<small>Finalize and submit for expert opinion</small> </a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xs-9">
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div class="tab-pane active" id="step_1">
+							<form class="form-horizontal">
+								<fieldset>
+
+									<!-- Form Name -->
+									<legend>
+										Summary of your medical condition
+									</legend>
+
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="diagnosis">Diagnosis</label>
+										<div class="col-md-4">
+											<input id="diagnosis" name="diagnosis" placeholder="enter diagnosis" class="form-control input-md" type="text">
+
+										</div>
+									</div>
+
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="textinput">Date of Diagnosis</label>
+										<div class="col-md-4">
+											<input id="textinput" name="textinput" placeholder="" class="form-control input-md" type="text">
+											<span class="help-block">help</span>
+										</div>
+									</div>
+
+									<!-- Textarea -->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="textarea">What is the current recommendation of your local doctors/specialist ?</label>
+										<div class="col-md-4">
+											<textarea class="form-control" id="textarea" name="textarea">default text</textarea>
+										</div>
+									</div>
+
+									<!-- Textarea -->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="textarea">What are teh 3 most important questions you want answered by our expert specialists ?</label>
+										<div class="col-md-4">
+											<textarea class="form-control" id="textarea" name="textarea">Enter 3 questions here</textarea>
+										</div>
+									</div>
+
+								</fieldset>
+							</form>
+
+						</div>
+						<div class="tab-pane" id="step_2">
+							Profile Tab.
+						</div>
+						<div class="tab-pane" id="step_3">
+							Messages Tab.
+						</div>
+						<div class="tab-pane" id="step_4">
+							Settings Tab.
+						</div>
+						<div class="tab-pane" id="step_5">
+							Settings Tab.
+						</div>
+						<div class="tab-pane" id="step_6">
+							Settings Tab.
+						</div>
+						<div class="tab-pane" id="step_7">
+							Settings Tab.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	</body>
+</html>

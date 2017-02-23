@@ -1,0 +1,102 @@
+<style type="text/css" media="screen">
+	small {
+		display: block;
+		line-height: 1.4;
+		color: #999;
+	}
+
+	.docItem {
+		background-color: rgba(255,255,255,0.9);
+		box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
+	}
+
+	p  .fa {
+		margin-right: 10px;
+	}
+
+	.col-sm-2 img {
+		margin-right: 10px;
+		box-shadow: rgba(0, 0, 0, 0.5) -5px 5px 15px;
+	}
+
+</style>
+
+<div class="container">
+	<ul id="my_docs_panel"></ul>
+</div>
+
+<div id="DOCITEM_TEMPATE" style="display:none;">
+	{{#time_items}}
+	<div class="row detect wow fadeInDown" style="margin-top: 20px;">
+
+		<div class="col-sm-2 col-sm-offset-2 centered">
+			<img src="http://www.cedars-sinai.edu/Bios---Physician/H-O/drhlMirhadi-Amin-MD.jpg" alt="" class="img-responsive img-thumbnail center-block wow rollIn" data-wow-delay="1s"/>
+		</div>
+		<div class="col-sm-6 docItem" >
+			<div style="padding:5px;">
+				<h4>{{name}}</h4>
+				<small><cite title="San Francisco, USA">{{location}}&nbsp;&nbsp;<i class="fa fa-map-marker fa-lg"></i></cite></small>
+				<p style="padding:5px;">
+					<i class="fa fa-envelope fa-lg"></i>&nbsp;&nbsp;{{email}}
+					<br />
+					<i class="fa fa-globe fa-lg"></i>&nbsp;&nbsp;<a href="{{name}}">{{website}}</a>
+					<br />
+					<i class="fa fa-graduation-cap fa-lg"></i>&nbsp;&nbsp;{{education}}
+				</p>
+				<div class="row centered" style="border-top:1px dotted gray;">
+					<div class="col-sm-12 col">
+						<div class="col-sm-3">
+							<h4>{{exp}} yrs</h4>
+							<small>Experience</small>
+						</div>
+						<div class="col-sm-3">
+							<h4>{{operations}}</h4>
+							<small>Operations</small>
+						</div>
+						<div class="col-sm-3">
+							<h4>{{patients}}</h4>
+							<small>Patients</small>
+						</div>
+						<div class="col-sm-3">
+							<h4>{{clinics}}</h4>
+							<small>clinics</small>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	{{/time_items}}
+</div>
+<script>
+	(function() {
+		var items = [];
+		for (var i = 0; i < 10; i++) {
+			var oneDoc = {
+				name : "Name " + i,
+				location : 'San Francisco, CA, USA',
+				email : 'name@email.com',
+				website : 'Web site url',
+				education : 'Edu',
+				email : 'Title here',
+				exp : i + 2,
+				operations : i * 2,
+				exp : i * 2,
+				patients : i * 3,
+				clinics : 25
+
+			};
+			items.push(oneDoc);
+		}
+
+		var timetemplate = $('#DOCITEM_TEMPATE').html();
+		var timeHTML = Mustache.to_html(timetemplate, {
+			time_items : items
+		});
+		$("#my_docs_panel").html(timeHTML);
+		//new WOW().init();
+		console.log("doing it");
+	})(); 
+</script>

@@ -1,0 +1,106 @@
+<div class="container animated bounceIn" style="margin-top: 20px;">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+
+			<p>
+				<input type="text" id="search" placeholder="Type something..." autocomplete="off" class="form-control" />
+			</p>
+			<p>
+				<button id="search-button" value="Search" class="form-control btn btn-primary">
+					Search
+				</button>
+			</p>
+
+		</div>
+	</div>
+</div>
+
+<div id="devices-container">
+
+</div>
+
+<div id="onedevice" style="display: none;">
+	{{#rows}}
+	<div class="col-sm-6">
+		<div class="panel-body glass-panel card">
+			<h3 class="text-center">34334310010020020</h3>
+			<hr />
+			<div class="row">
+				<div class="col-xs-12">
+					&nbsp;
+					<br />
+				</div>
+				<div class="col-xs-4 text-center">
+					<span class="device-status">Battery </span>
+					<br />
+					<span class="device-status-data">80%</span>
+				</div>
+				<div class="col-xs-4 text-center">
+					<span class="device-status">Tokens</span>
+					<br />
+					<span class="device-status-data">{{tokencount}}</span>
+				</div>
+				<div class="col-xs-4 text-center">
+					<span class="device-status">Last Used</span>
+					<br />
+					<span class="device-status-data">10/2/15</span>
+				</div>
+				<div class="col-xs-12">
+					&nbsp;
+					<br />
+				</div>
+				<div class="col-xs-4 text-center">
+					<span class="device-status">Taps </span>
+					<br />
+					<span class="device-status-data">{{taps}}</span>
+				</div>
+				<div class="col-xs-4 text-center">
+					<span class="device-status">Crashes</span>
+					<br />
+					<span class="device-status-data">20</span>
+				</div>
+				<div class="col-xs-4 text-center">
+					<span class="device-status">Version</span>
+					<br />
+					<span class="device-status-data">1.0</span>
+				</div>
+			</div>
+			<br />
+			<br />
+		</div>
+	</div>
+	{{/rows}}
+</div>
+
+<script>
+	function handleTemplate() {
+		var data = [];
+		for (var i = 0; i < 15; i++) {
+			oneData = {
+				pic : "http://api.randomuser.me/portraits/thumb/men/" + i + ".jpg",
+				user : "James" + i + " Bond " + i,
+				taps : "$" + (i * 3),
+				score : i,
+				tokencount : i + 10,
+				outbound : i * 10
+			};
+			data.push(oneData);
+		}
+		var template = $('#onedevice').html();
+		var html = Mustache.to_html(template, {
+			rows : data
+		});
+		$("#devices-container").html(html);
+	}
+
+	$(function() {
+		$("#search-button").click(function(e) {
+			e.preventDefault();
+			App.MenuController.toggleNav();
+			//$("#fullscreen_stage").load("screens/frame_timeline.html");
+			//$("#fullscreen_stage").load("screens/frame_vertical_timeline.html");
+			$("#fullscreen_stage").load("screens/frame_pathology_viewer.html");
+			showFullScreen();
+		});
+	}); 
+</script>

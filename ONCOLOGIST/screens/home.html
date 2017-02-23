@@ -1,0 +1,75 @@
+<!-- THIS BUTTON GETS ADDED DYNAMICALL ON TOP RIGHT -->
+<div id='new_patient_button_code' style="display:none">
+	<a href="#"> <i class="btl bt-plus"></i></a>
+</div>
+
+<!-- div class="container" style="margin-top: 25px;">
+<div class="row">
+<div class="col-sm-12 text-center">
+<button class="btn btn-primary  animated fadeInLeft" id="create_patient">
+Create New Patient
+</button>
+&nbsp;
+<button class="btn btn-success  animated fadeInRight" id="find_patient">
+Find Patient
+</button>
+</div>
+</div>
+</div -->
+
+<div class="container" style="margin-bottom: 50px;">
+	<div class="row">
+		<div class="col-sm-6 col-md-4 nav_block">
+			<a onclick="$('body').trigger('details-screen');" style="text-decoration:none;">
+			<div class="black-glass pad20 text-center ani-block navblock">
+				<!--<i class="btl bt-edit bt-3x"></i>-->
+				<i class="fa fa-users fa-3x"></i>
+				<br />
+				<h4 class="text-center">PATIENT DEMOGRAPHICS</h4>
+				<p>
+					View Patient Demographics Details.
+				</p>
+			</div> </a>
+		</div>
+
+		<div class="col-sm-6 col-md-4 nav_block">
+			<a onclick="$('body').trigger('full_profile_view');" style="text-decoration:none;">
+			<div class="black-glass pad20 text-center ani-block navblock">
+				<!--<i class="btl bt-edit bt-3x"></i>-->
+				<i class="fa fa-user fa-3x"></i>
+				<br />
+				<h4 class="text-center">SINGLE VIEW PATIENT PROFILE</h4>
+				<p>
+					View Patient Details.
+				</p>
+			</div> </a>
+		</div>
+		<div class="col-sm-6 col-md-4 nav_block">
+			<a onclick="$('body').trigger('image-details-screen');" style="text-decoration:none;">
+			<div class="black-glass pad20 text-center ani-block navblock">
+				<!--<i class="btl bt-edit bt-3x"></i>-->
+				<i class="fa fa-picture-o fa-3x"></i>
+				<br />
+				<h4 class="text-center">IMAGES</h4>
+				<p>
+					View Images Details.
+				</p>
+			</div> </a>
+		</div>
+
+	</div>
+</div>
+
+<script>
+	$(function() {
+
+		$(".ani-block").velocity("transition.slideUpBigIn", {
+			duration : 600,
+			delay : 300,
+			stagger : 100,
+			easing : "easeInOutQuart",
+			visibility : "visible"
+		});
+
+	}); 
+</script>

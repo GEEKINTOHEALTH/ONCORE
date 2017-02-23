@@ -1,0 +1,214 @@
+html, body {
+	-webkit-font-smoothing: antialiased;
+	height: 100%;
+	overflow: hidden;
+	background: red;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Lato', sans-serif;
+}
+#header {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 50px;
+	background: #111;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	color: white;
+	font-family: 'Lato';
+	font-size: 1.30em;
+	/*border-bottom: 1px solid red;*/
+	text-transform: uppercase;
+}
+#center-body {
+	position: absolute;
+	top: 50px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	-webkit-overflow-scrolling: touch;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background: #F5F5F5;
+}
+#side {
+	position: absolute;
+	bottom: 0px;
+	width: 250px;
+	top: 0px;
+	background: #222;
+	text-align: center;
+	-webkit-box-shadow: 2px 0 7px -2px #888;
+	box-shadow: 2px 0 7px -2px #888;
+	-webkit-overflow-scrolling: touch;
+	overflow-y: scroll;
+}
+#main {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	background: white;
+}
+h1, h2, h3, h4 {
+	font-family: 'Lato', sans-serif;
+}
+#bigtextshadow {
+	color: orange;
+	font-size: 3em;
+	text-shadow: 3px 1px 3px rgba(0, 0, 0, 0.3);
+	padding: 100px 100px;
+}
+.card {
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 3px 0 rgba(0, 0, 0, 0.16);
+}
+* {
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	border-radius: 0 !important;
+	font-family: Verdana;
+}
+.list-group-item {
+	background: none;
+	border: none;
+	color: white;
+	letter-spacing: 1px;
+	font-family: Lato;
+}
+.list-group  a {
+	color: white;
+	text-decoration: none;
+}
+.list-group a:hover {
+	background-color: #00BCD4;
+	color: white;
+}
+
+.form-group {
+	text-align: left;
+}
+#nprogress .bar {
+	top: 21px;
+	background: #29d;
+	height: 2px;
+	z-index: 9999;
+}
+.centered-form .panel {
+	/*background: rgba(255, 255, 255, 0.9);*/
+	background: white;
+	box-shadow: rgba(0, 0, 0, 0.3) 10px 10px 10px;
+}
+
+*, *:before, *:after {
+	box-sizing: border-box !important;
+}
+
+.mrow {
+	-moz-column-width: 28em;
+	-webkit-column-width: 28em;
+	-moz-column-gap: 1em;
+	-webkit-column-gap: 1em;
+}
+
+.mrow-2 {
+	-moz-column-width: 48em;
+	-webkit-column-width: 48em;
+	-moz-column-gap: 1em;
+	-webkit-column-gap: 1em;
+}
+
+.mitem {
+	display: inline-block;
+	padding: 0.25 rem;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.notes-para {
+	padding: 10px;
+	border-bottom: 1px dotted silver;
+}
+
+.card-panel {
+	padding: 10px;
+	padding-top: 1px;
+	background: white;
+}
+
+.section-head {
+	color: gray;
+	padding: 5px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid silver;
+}
+
+.section-head i {
+	color: gray;
+	margin-right: 5px;
+}
+
+#user-name {
+	text-transform: uppercase;
+	color: black;
+}
+
+.profile-data span {
+	font-weight: bold;
+}
+
+.flag-red {
+	color: red;
+	font-weight: plain;
+}
+
+.hospital-data {
+	margin-top: 30px;
+	margin-right: 20px;
+}
+
+.chart-block {
+	width: 100%;
+	height: 150px;
+}
+
+.row {
+	margin-top: 10px;
+}
+
+.trend-panel {
+	border: 1px solid #dcdcdc;
+	margin: 2px;
+	height: 100px;
+	padding: 5px;
+	background: #f5f5f5; /* Old browsers */
+}
+
+#measurement-container .col-sm-4 p {
+	margin-left: 5px;
+}
+
+.trend-panel div {
+}
+
+.inline-image {
+	display: inline-block;
+	padding: 5px;
+	color: white;
+	overflow: hidden;
+	width: 170px;
+	height: 170px;
+}
+
+.leftpad-20 p {
+	padding-left: 30px;
+}
+.notopborder {
+	border-top: none;
+}

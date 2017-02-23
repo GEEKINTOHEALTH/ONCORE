@@ -1,0 +1,70 @@
+<div class="container" style="margin-top:100px;background-color: white;">
+	<div class="row" style="padding:10px;">
+		<div class="col-sm-2 col-md-2">
+			<img src="http://www.cedars-sinai.edu/Bios---Physician/H-O/drhlHu-Jethro---Neuro.jpg"
+			alt="" class="img-thumbnail img-responsive" />
+		</div>
+		<div class="col-sm-4 col-md-4">
+			<h2>Patient</h2>
+			<p>
+				John Doe
+			</p>
+			<small><cite title="Source Title">Gotham, United Kingdom <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+			<p>
+				<i class="glyphicon glyphicon-envelope"></i> masterwayne@batman.com
+				<br
+				/>
+				<i class="glyphicon glyphicon-globe"></i> www.bootsnipp.com
+				<br />
+				<i class="glyphicon glyphicon-gift"></i>&nbsp; DOB : &nbsp;January 30, 1974
+			</p>
+		</div>
+		<div class="col-sm-2 col-md-2">
+			<img src="http://www.cedars-sinai.edu/Bios---Physician/P-Z/drhlbio3266542085293887585.jpg"
+			alt="" class="img-thumbnail img-responsive" />
+		</div>
+		<div class="col-sm-4 col-md-4">
+			<h2>Medical Expert</h2>
+			<p>
+				Dr. Chirag Patel,
+				<br />
+				Neurosurgeon.
+			</p>
+			<small><cite title="Source Title">LA, United States <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+			<br /><br />
+			<div class="dropdown">
+				<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+					More
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" href="#">View profile</a>
+					</li>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" href="#">Change expert</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="caseitem_block_template" type="text/template">
+
+</div>
+<script type="text/javascript">
+	(function() {
+		$('body').css('background-color', '#f5f5f5');
+		$('.row').addClass('animated fadeInDown');
+
+		var template = $('#caseitem_block_template').html();
+		var html = Mustache.to_html(template, {
+			rows : {
+				heading : "TREATMENTS",
+				icon : 'https://cdn2.iconfinder.com/data/icons/medical-icons-6/48/5-128.png'
+			}
+		});
+		$("#single_page_container").append(html).fadeIn('slow');
+
+	})();
+</script>

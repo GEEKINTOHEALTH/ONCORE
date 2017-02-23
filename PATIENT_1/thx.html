@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="full">
+	<head>
+		<title>Donate</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+		<link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet' type='text/css'>
+		<link href="css/download.css" rel="stylesheet">
+
+		<style type="text/css" media="screen">
+			.centered-form {
+				margin-top: 40px;
+			}
+			.centered-form .panel {
+				background: rgba(255, 255, 255, 0.9);
+				box-shadow: rgba(0, 0, 0, 0.3) 10px 10px 10px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="container">
+			<div class="row centered-form">
+				<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Healthbnb.com<small> payment received</small></h3>
+						</div>
+						<div class="panel-body">
+							<p class="lead centered">
+								Thank you for the payment.<br/>
+								<a href="/hbnb/index.html?#/login">Click here</a> to upload your study files.
+							</p>						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+		<script lang="javascript" src="js/TemplateManager.js"></script>
+
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				$("#make_donation").click(function() {
+					performDonate();
+				});
+			});
+		</script>
+
+		
+	</body>
+</html>

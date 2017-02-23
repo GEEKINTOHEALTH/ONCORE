@@ -1,0 +1,36 @@
+<div class="container" style="margin-top: 100px;">
+	<div class="row centered" >
+		<div class="btn-group btn-group-lg">
+			<button class="btn btn-default" type="button" id="my_medical_history">
+				<i class="icon-user"></i> My Medical Records
+			</button>
+			<button class="btn btn-default" type="button" id="my_cases">
+				<i class="icon-user"></i> My Cases
+			</button>
+			<button class="btn btn-default" type="button" id="profile_settings">
+				<i class="icon-user"></i> Profile
+			</button>
+		</div>
+	</div>
+</div>
+<div class="container" id="tab_stage">
+
+</div>
+<script type="text/javascript">
+	(function() {
+		$("#tab_stage").hide().load("screens/my_cases.html").fadeIn('slow');
+
+		$("#my_medical_history").click(function() {
+			$("#tab_stage").hide().load("screens/medical_history.html").fadeIn('slow');
+		});
+
+		$("#my_cases").click(function() {
+			$("#tab_stage").hide().load("screens/my_cases.html").fadeIn('slow');
+		});
+		
+		$("#profile_settings").click(function() {
+			$("#tab_stage").hide().load("screens/profile_settings.html").fadeIn('slow');
+		});
+
+	})(); 
+</script>

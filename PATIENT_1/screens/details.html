@@ -1,0 +1,45 @@
+<div class="container" style="margin-top:100px;" id="detail_panel">	
+</div>
+
+<script id="DOCDETAIL_TEMPLATE" type="text/template">
+	<div class="row centered" >
+	<div class="col-md-3 centered"><img src="{{photo}}" alt="" />
+		<br>
+		<br>
+		<a href="#/login" type="button" class="btn btn-warning">Start Case</a>
+	</div>
+	<div class="col-md-9">
+	<h1>{{name}}</h1>
+	<hr />
+	<h4>{{speciality}}</h4>
+	<p style="text-align: justify;">
+	{{{description}}}
+	</p>
+	</div>
+	</div>
+	<div class="row centered" style="margin-top:20px;min-height: 200px;">
+		<div class="col-md-6 col-md-offset-3 centered">
+			<a class="embedly-card" href="{{video1}}">{{name}}</a>
+			<script>
+				! function(a) {
+					var b = "embedly-platform", c = "script";
+					if (!a.getElementById(b)) {
+						var d = a.createElement(c);
+						d.id = b, d.src = ("https:" === document.location.protocol ? "https" : "http") + "://cdn.embedly.com/widgets/platform.js";
+						var e = document.getElementsByTagName(c)[0];
+						e.parentNode.insertBefore(d, e)
+					}
+				}(document);
+			</script>
+		</div>
+	</div>
+</script>
+<script type="text/javascript">
+	(function() {
+		log("HTML is .." + currentSelectionIndex);
+		currentSelection = $("body").data(currentSelectionIndex);
+		var detailTemplate = $('#DOCDETAIL_TEMPLATE').html();
+		var html = Mustache.to_html(detailTemplate, currentSelection);
+		$("#detail_panel").html(html);
+	})(); 
+</script>

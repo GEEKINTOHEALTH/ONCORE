@@ -1,0 +1,371 @@
+<link rel="stylesheet" href="css/bootstrap.vertical-tabs.min.css">
+<style type="text/css" media="screen">
+	.tab-pane {
+		background-color: white;
+		border: 1px dotted silver;
+		padding: 10px;
+	}
+	.nav-tabs {
+		background-color: #dcdcdc;
+		color: black;
+	}
+	.nav-tabs > li > a {
+		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		color: black;
+	}
+</style>
+<div class="container" style="background-color: none;margin-top: 50px;">
+	<div class="row" style="min-height:600px;margin-top: 20px;">
+		<div class="col-xs-3">
+			<ul class="nav nav-tabs tabs-left">
+				<li class="active">
+					<a href="#step_1" data-toggle="tab">STEP 1
+					<br>
+					<small>Provide summary of your medical condition and your questions for our expert MD</small></a>
+				</li>
+				<li>
+					<a href="#step_2" data-toggle="tab">STEP 2
+					<br>
+					<small>Provide or attach your Doctors medical notes</small> </a>
+				</li>
+				<li>
+					<a href="#step_3" data-toggle="tab">STEP 3
+					<br>
+					<small>Attach pathology reports</small> </a>
+				</li>
+				<li>
+					<a href="#step_4" data-toggle="tab">STEP 4
+					<br>
+					<small>Attach Imaging study and reports (MRI, CT, X-RAY))</small> </a>
+				</li>
+				<li>
+					<a href="#step_5" data-toggle="tab">STEP 5
+					<br>
+					<small>Attach lab results</small> </a>
+				</li>
+				<li>
+					<a href="#step_6" data-toggle="tab">STEP 6
+					<br>
+					<small>Attach any other information relevant to your medical condition</small> </a>
+				</li>
+				<li>
+					<a href="#step_7" data-toggle="tab">STEP 7
+					<br>
+					<small>Finalize and submit for expert opinion</small> </a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-xs-9">
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active" id="step_1">
+					<form class="form-horizontal">
+						<fieldset>
+
+							<!-- Form Name -->
+							<legend>
+								Summary of your medical condition
+							</legend>
+
+							<!-- Textarea summary-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="textarea">Enter a summary of your medical condition</label>
+								<div class="col-md-4">
+									<textarea class="form-control" id="textarea" name="textarea">Current medical condition</textarea>
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="diagnosis">Diagnosis</label>
+								<div class="col-md-4">
+									<input id="diagnosis" name="diagnosis" placeholder="enter diagnosis" class="form-control input-md" type="text">
+
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="textinput">Date of Diagnosis</label>
+								<div class="col-md-4">
+									<input id="textinput" name="textinput" placeholder="" class="form-control input-md" type="text">
+									<span class="help-block">help</span>
+								</div>
+							</div>
+
+							<!-- Textarea -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="textarea">What is the current recommendation of your local doctors/specialist ?</label>
+								<div class="col-md-4">
+									<textarea class="form-control" id="textarea" name="textarea">default text</textarea>
+								</div>
+							</div>
+
+							<!-- Textarea -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="textarea">What are teh 3 most important questions you want answered by our expert specialists ?</label>
+								<div class="col-md-4">
+									<input id="question1" name="question1" placeholder="enter question" class="form-control input-md" type="text">
+									<input id="question2" name="question2" placeholder="enter question" class="form-control input-md" type="text">
+									<input id="question3" name="question3" placeholder="enter question" class="form-control input-md" type="text">
+								</div>
+							</div>
+
+						</fieldset>
+					</form>
+
+				</div>
+				<div class="tab-pane" id="step_2">
+					<form class="form-horizontal">
+						<fieldset>
+
+							<!-- Form Name -->
+							<legend>
+								Doctor Notes
+							</legend>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="doctorName">Name of Doctor</label>
+								<div class="col-md-4">
+									<input id="doctorName" name="doctorName" placeholder="enter doctor name" class="form-control input-md" type="text">
+
+								</div>
+							</div>
+
+							<!-- Select Basic -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="doctorSpeciality">Doctor Speciality</label>
+								<div class="col-md-4">
+									<select id="doctorSpeciality" name="doctorSpeciality" class="form-control">
+										<option value="1">Cardio</option>
+										<option value="2">Dental</option>
+									</select>
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="notesDate">Date this Doctor saw you and wrote the note you are attaching</label>
+								<div class="col-md-4">
+									<input id="notesDate" name="notesDate" placeholder="mm/dd/yyyy" class="form-control input-md" type="text">
+
+								</div>
+							</div>
+
+							<!-- Textarea -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="noteComment">Comments</label>
+								<div class="col-md-4">
+									<textarea class="form-control" id="noteComment" name="noteComment">Enter comments</textarea>
+								</div>
+							</div>
+
+							<!-- File Button -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="attachNotes">Attach Notes</label>
+								<div class="col-md-4">
+									<input id="attachNotes" name="attachNotes" class="input-file" type="file">
+								</div>
+							</div>
+
+						</fieldset>
+					</form>
+
+				</div>
+				<div class="tab-pane" id="step_3">
+					<form class="form-horizontal">
+						<fieldset>
+
+							<!-- Form Name -->
+							<legend>
+								Pathology Reports
+							</legend>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyTitle">Title</label>
+								<div class="col-md-4">
+									<input id="pathologyTitle" name="pathologyTitle" placeholder="enter a title" class="form-control input-md" type="text">
+
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyDate">Date</label>
+								<div class="col-md-4">
+									<input id="pathologyDate" name="pathologyDate" placeholder="mm/dd/yyyy" class="form-control input-md" type="text">
+
+								</div>
+							</div>
+
+							<!-- Textarea -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyComments">Enter comments</label>
+								<div class="col-md-4">
+									<textarea class="form-control" id="pathologyComments" name="pathologyComments">comments about this pathology report</textarea>
+								</div>
+							</div>
+
+							<!-- File Button -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyUpload">Attach Pathology report</label>
+								<div class="col-md-4">
+									<input id="pathologyUpload" name="pathologyUpload" class="input-file" type="file">
+								</div>
+							</div>
+
+						</fieldset>
+					</form>
+
+				</div>
+				<div class="tab-pane" id="step_4">
+					<form class="form-horizontal">
+						<fieldset>
+
+							<!-- Form Name -->
+							<legend>
+								Imaging Reports
+								<br/>
+								<small> Attach your imaging studies and reports like MRI, CT, X-Rays, PET Scan etc.</small>
+							</legend>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyTitle">Title</label>
+								<div class="col-md-4">
+									<input id="pathologyTitle" name="pathologyTitle" placeholder="enter a title" class="form-control input-md" type="text">
+
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyDate">Date</label>
+								<div class="col-md-4">
+									<input id="pathologyDate" name="pathologyDate" placeholder="mm/dd/yyyy" class="form-control input-md" type="text">
+
+								</div>
+							</div>
+
+							<!-- Textarea -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyComments">Enter comments</label>
+								<div class="col-md-4">
+									<textarea class="form-control" id="pathologyComments" name="pathologyComments">comments about this imaging report</textarea>
+								</div>
+							</div>
+
+							<!-- File Button -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyUpload">Attach Imaging report</label>
+								<div class="col-md-4">
+									<input id="pathologyUpload" name="pathologyUpload" class="input-file" type="file">
+								</div>
+							</div>
+
+						</fieldset>
+					</form>
+
+				</div>
+				<div class="tab-pane" id="step_5">
+					<form class="form-horizontal">
+						<fieldset>
+
+							<!-- Form Name -->
+							<legend>
+								Lab Reports
+							</legend>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyTitle">Title</label>
+								<div class="col-md-4">
+									<input id="pathologyTitle" name="pathologyTitle" placeholder="enter a title" class="form-control input-md" type="text">
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyDate">Date</label>
+								<div class="col-md-4">
+									<input id="pathologyDate" name="pathologyDate" placeholder="mm/dd/yyyy" class="form-control input-md" type="text">
+
+								</div>
+							</div>
+
+							<!-- Textarea -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyComments">Enter comments</label>
+								<div class="col-md-4">
+									<textarea class="form-control" id="pathologyComments" name="pathologyComments">comments about this lab report</textarea>
+								</div>
+							</div>
+
+							<!-- File Button -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyUpload">Attach Pathology report</label>
+								<div class="col-md-4">
+									<input id="pathologyUpload" name="pathologyUpload" class="input-file" type="file">
+								</div>
+							</div>
+
+						</fieldset>
+					</form>
+
+				</div>
+				<div class="tab-pane" id="step_6">
+					<form class="form-horizontal">
+						<fieldset>
+
+							<!-- Form Name -->
+							<legend>
+								Other Misc. Reports
+							</legend>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyTitle">Title</label>
+								<div class="col-md-4">
+									<input id="pathologyTitle" name="pathologyTitle" placeholder="enter a title" class="form-control input-md" type="text">
+
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyDate">Date</label>
+								<div class="col-md-4">
+									<input id="pathologyDate" name="pathologyDate" placeholder="mm/dd/yyyy" class="form-control input-md" type="text">
+
+								</div>
+							</div>
+
+							<!-- Textarea -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyComments">Enter comments</label>
+								<div class="col-md-4">
+									<textarea class="form-control" id="pathologyComments" name="pathologyComments">comments about this report</textarea>
+								</div>
+							</div>
+
+							<!-- File Button -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="pathologyUpload">Attach Pathology report</label>
+								<div class="col-md-4">
+									<input id="pathologyUpload" name="pathologyUpload" class="input-file" type="file">
+								</div>
+							</div>
+
+						</fieldset>
+					</form>
+
+				</div>
+				<div class="tab-pane" id="step_7">
+					Settings Tab.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

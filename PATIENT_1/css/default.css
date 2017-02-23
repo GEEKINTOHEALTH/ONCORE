@@ -1,0 +1,73 @@
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	color: #222;
+	-webkit-font-smoothing: antialiased;
+	-webkit-overflow-scrolling: touch;
+	overflow-x: hidden;
+	background: none;
+	background-color: #efefef;
+	/*margin-top: 50px;*/	
+}
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: #333;
+}
+.
+.fixed {
+	position: fixed;
+}
+
+.centered {
+	text-align: center;
+}
+
+.full {
+	background: url(../img/blurbg_2.jpg) no-repeat center center fixed;
+	background-color: #efefef;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+/* HeaderWrap */
+#headerwrap {
+	background: url(../img/opinion.jpg) no-repeat center top;
+	margin-top: 10px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 600px;
+	width: 100%;
+	-webkit-background-size: 100%;
+	-moz-background-size: 100%;
+	-o-background-size: 100%;
+	background-size: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#stage {
+	min-height: 80vh;
+}
+
+.darkBg {
+	background-color: #333;
+	background: url(http://splitzone.splitshire1.netdna-cdn.com/wp-content/uploads/2014/02/SplitShire_blur10-800x500.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.noBg {
+	background: none;
+}
+.centered-form .panel {
+	/*background: rgba(255, 255, 255, 0.9);*/
+	background: white;
+	box-shadow: rgba(0, 0, 0, 0.3) 10px 10px 10px;
+}

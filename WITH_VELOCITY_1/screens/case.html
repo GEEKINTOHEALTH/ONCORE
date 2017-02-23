@@ -1,0 +1,56 @@
+<div style="padding:0px 70px;background: white;">
+	<div class="row">
+		<div class="col-md-12 text-left">
+
+			<div class="page-header clearfix">
+				<img width="70" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699019-icon-32-clipboard-edit-128.png" class="pull-left" />
+				<h1> Create <small style="color:silver;"> new case</small></h1>
+				<hr />
+				<p>
+					Healthbnb provides personalized Second Opinions from teams of highly specialized physicians at world-class hospitals, to provide diagnoses and recommend treatment plans based on the latest medical research. Please provide your case details to begin the process.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="panel-body">
+				<div class="form-group">
+					<label class="" for="case_summary">Enter a summary of your medical condition</label>
+					<textarea name="case_summary" id="case_summary" class="form-control input-md" placeholder="Enter a summary of your current condition"></textarea>
+				</div>
+				<div class="form-group">
+					<label class="" for="case_diagnosis">Case Diagnosis</label>
+					<textarea  name="case_diagnosis" id="case_diagnosis" class="form-control input-md" placeholder="diagnosis for your case"></textarea>
+				</div>
+				<div class="form-group">
+					<label class="" for="case_diagnosis">Date of Diagnosis</label>
+					<input id="diagnosis_date" name="diagnosis_date" placeholder="date" class="form-control input-md" type="text" size="5">
+				</div>
+				<div class="form-group">
+					<label class="" for="case_diagnosis">What is the current recommendation of your local doctors/specialist ?</label>
+					<textarea type="" name="recommendation" id="recommendation" class="form-control input-md" placeholder="current recommendation"></textarea>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="row clearfix centered" >
+		<br />
+		<a class="btn btn-success" href="#"> <i class="fa fa-check-circle-o  fa-lg"></i>&nbsp;&nbsp;Save</a>
+		<a class="btn btn-primary" href="#/treatments"> <i class="fa fa-arrow-circle-o-right  fa-lg"></i>&nbsp;&nbsp;Go to Next Step</a>
+	</div>
+</div>
+
+<script>
+	(function() {
+		$("#case_summary").val(sample_case.summary);
+		$("#case_diagnosis").val(sample_case.diagnosis);
+		$("#diagnosis_date").val(sample_case.diagnosis_date);
+		$("#recommendation").val(sample_case.recommendation);
+	})(); 
+</script>
+

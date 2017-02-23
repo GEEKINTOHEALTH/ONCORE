@@ -1,0 +1,71 @@
+<link rel="stylesheet" type="text/css" href="/css/vertical_timeline.css">
+<div class="container" style="margin-top:100px;">
+	<div class="row">
+		<div class="col-md-8 col-lg-offset-2">
+			<ul class="timeline" id="timeline_stage"></ul>
+		</div>
+	</div>
+
+</div>
+
+<div id="TIMELINE_TEMPATE" style="display:none;">
+
+	{{#time_items}}
+
+	{{#event_date}}
+	<li>
+		<div class="tldate">
+			{{event_date}}
+		</div>
+	</li>
+	{{/event_date}}
+
+	<li class="{{time_class}}">
+		<div class="tl-circ">
+			{{item_number}}
+		</div>
+		<div class="timeline-panel {{no_arrow}}">
+			<div class="tl-heading">
+				<h4>{{item_title}}</h4>
+				<p>
+					<small class="text-muted"><i class="glyphicon glyphicon-time"></i>&nbsp;{{item_date}}</small>
+				</p>
+			</div>
+			<div class="tl-body">
+				<p>
+					{{item_description}}
+				</p>
+			</div>
+		</div>
+	</li>
+	{{/time_items}}
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('body').css('background-color', '#f5f5f5');
+		var items = [];
+
+		for (var i = 0; i < 2; i++) {
+			var oneItem = {
+				item_number : i,
+				time_class : (i % 2 == 0) ? 'timeline-inverted' : '',
+				event_date : (i % 5 == 0) ? 'Jan ' + i : '',
+				no_arrow : (i % 7 == 0) ? 'noarrow' : '',
+				item_date : '24th august' + i,
+				item_title : 'Title here',
+				item_description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' + i,
+			};
+			items.push(oneItem);
+		}
+
+		var timetemplate = $('#TIMELINE_TEMPATE').html();
+		var timeHTML = Mustache.to_html(timetemplate, {
+			time_items : items
+		});
+		$("#timeline_stage").html(timeHTML).fadeIn('slow');
+		$('.timeline-panel').addClass('animated fadeInDown');
+	});
+
+</script>

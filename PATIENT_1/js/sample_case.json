@@ -1,0 +1,155 @@
+var sample_case = {
+	"summary": "I am a 29 year old woman who was diagnosed with a large right frontal brain tumor in April of 2012. Our local neurosurgeon completely removed this tumor on 4/25/2012. Unfortunately the pathology was a malignant brain cancer, glioblastoma. I was treated with chemotherapy and radiation therapy after the first surgery. I was doing well until october of 2012 when MRI showed that the tumor had come back. The neurosurgeon again removed this recurrent tumor on october 10, 2012. I was then treated with IV chemotherapy CCNU. I was doing quite well until  now (January 2014) when I started having headaches and weakness on the left side of my body. Another MRI was recently obtained which I am attaching with my other medical records. My local neurosurgeon is not sure if this regrowth of my tumor can be safely removed. Please help.",
+	"diagnosis": "Glioblastoma - Brain cancer",
+	"diagnosis_date": "04/25/2012",
+	"first_name": "juanita",
+	"last_name": "riley",
+	"date_of_birth": "04/25/1970",
+	"recommendation": "Currently my local neurosurgeon does not think that this tumor can be safely removed and does not seem to know what to do next.",
+	"questions": ["Do you think that the new tumor growth that is deeper in my brain can be safely removed? Would you recommend another operation?", "What treatment would you recommend after surgery?", "Would I be eligible for any clinical trials at your institution, if I choose to come there for my treatment? I have heard about some vaccine that you have developed"],
+	"expert_opinion": "Dear Miss Jane Doe, I have reviewed your medical records you sent me including the brain MRIs and pathology reports very carefully. Please find below answers to your questions and my recommendations. In summary, my overall recommendation is that you undergo surgical removal of the brain tumor at a specialized center such as ours. After surgery, personalized medicine approaches and clinical trials are available to prevent your brain tumor from recurring. Thank you for your interest in seeking my opinion and I wish you the very best. If you have further questions or want to plan a visit to our medical center and need additional assistance, please contact my assistant through this Health BnB website by clicking here or email her at assistant@doctor.edu Sincerely",
+	"expert_answers": ["After review of your brain MRI from January 2014, I do believe that this deep regrowth of your tumor can be safely resected by an experienced brain tumor surgeon. The tumor does start involving the corpus callosum but with advanced MRI guidance techniques available, this portion can be successfully removed.", "I would recommend that genomic analysis be carried out on your brain tumor after surgery. This analysis will identify the specific mutations that your tumor carries and thus, informing us about your specific tumor’s vulnerabilities. At our institution, we have developed a method that can then identify specific targeted drugs that are best suited to kill your specific brain tumor.", "After surgery you will very likely be eligible for one of our many glioblastoma clinical trials including vaccine and personalized medicine trials. We can explain to you all those options after your surgery."],
+	"treatments": [
+		{
+			"id": 100,
+			"date": "01/01/2012",
+			"title": "Treatment 1",
+			"description": "Treatment Description 1"
+		}
+	],
+
+	"doctor_notes": [
+		{
+			"date": "4/25/2012",
+			"doctor": "Dr. Chirag Patil",
+			"speciality": "Neuro Surgeon",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjSk1Qa0hXRVFSR1U/edit"
+		}, {
+			"date": "4/25/2012",
+			"doctor": "Dr. Moheet Asma",
+			"speciality": "Neurologist",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjeVlwWWFyQzkzZWc/edit"
+		}, {
+			"date": "4/27/2012",
+			"doctor": "Dr. Ju Hethro",
+			"speciality": "Neuro Oncology",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjcGwtclZ0eFUzeUU/edit"
+		}, {
+			"date": "5/21/2012",
+			"doctor": "Dr. Hakimian Behrooz",
+			"speciality": "Radiation Oncology",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2Ekjd0xMVHFwUndkalE/edit"
+		}, {
+			"date": "10/03/2012",
+			"doctor": "Dr. Ju Hethro",
+			"speciality": "Neuro Oncology",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjM1JxRjdheGNQbnc/edit"
+		}, {
+			"date": "10/11/2012",
+			"doctor": "Dr. Chirag Patil",
+			"speciality": "Neuro Surgeon",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjZS1peHVGTEp0Njg/edit"
+		}, {
+			"date": "10/11/2012",
+			"doctor": "Dr. Chirag Patil",
+			"speciality": "Neuro Surgeon",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjU2dZSVljelVtb3c/edit"
+		}, {
+			"date": "6/4/2013",
+			"doctor": "Dr. Ju Hethro",
+			"speciality": "Neuro Oncology",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjUzktYm1xeHFtZms/edit"
+		}, {
+			"date": "1/16/2014",
+			"doctor": "Dr. Ju Hethro",
+			"speciality": "Neuro Oncology",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjdXJfck9JUjVkaG8/edit"
+		}, {
+			"date": "1/21/2014",
+			"doctor": "Dr. Ju Hethro",
+			"speciality": "Neuro Surgeon",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2Ekjc2Q5Zkdvc0FWZ2M/edit"
+		}
+	],
+
+	"pathology": [
+		{
+			"id": "p100",
+			"date": "4/25/2012",
+			"title": "Surgical Pathology Report",
+			"comments": "Glioblstoma multiforme , WHO grade IV",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjQlZsOWhiZ0t6QTQ/edit"
+		}, {
+			"id": "p200",
+			"date": "10/11/2012",
+			"title": "Surgical Pathology Report",
+			"comments": "Cortex and white matter involved by persistent glioma, consistent with history of glioblastoma",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjVFREZW1FdXJGZnc/edit"
+		}, {
+			"id": "p300",
+			"date": "1/20/2014",
+			"title": "Surgical Pathology Report",
+			"comments": "Sections reveal predominantly viable densely cellular glioblasm multiform with upto 10% of cells within the biopsy bleng inflammatory cells and macrophages.",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjWG1kb0dkTlRmTXM/edit"
+		}
+	],
+
+	"imaging": [
+		{
+			"id": "i100",
+			"date": "4/27/2012",
+			"title": "CT Brain WO Contrast",
+			"comments": "Cystis mass measuring 4.3 cm is present in the right superior frontal lobe.",
+			"type": "report",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjWjdqc0VFWnBXcTA/edit"
+		}, {
+			"id": "i200",
+			"date": "10/12/2012",
+			"title": "MRI Brain",
+			"comments": "Post Operative Changes from a prior proniotomy.",
+			"type": "report",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjWkJCRl9FUXhfZmc/edit"
+		}, {
+			"id": "i300",
+			"date": "1/20/2014",
+			"title": "MRI Brain WO/W Contrast With Fiducial Marker",
+			"comments": "30 Year old woman presents with recurrent right frontal glioblastoma",
+			"type": "report",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjTVVLWkVDS1FPLVk/edit"
+		}, {
+			"id": "i400",
+			"date": "1/20/2014",
+			"title": "MRI Dicom Study",
+			"comments": "30 Year old woman presents with recurrent right frontal glioblastoma",
+			"type": "dicomstudy",
+			"attachment": "https://www.medxt.com/viewer?s=27462"
+		}, {
+			"id": "i500",
+			"date": "1/20/2014",
+			"title": "Study Image 2",
+			"comments": "Image 2",
+			"type": "image",
+			"attachment": "https://s3-us-west-1.amazonaws.com/data-us-west-1.radiology.io/jlqpemo8h54pd5775mk2qh5etr-0.jpg"
+		}
+	],
+
+	"labresults": [
+		{
+			"id": "l100",
+			"date": "10/18/2012",
+			"title": "Prothrombin Time",
+			"comments": "PT results expressed as INR are for coumadin monitorng. Abnormaloty flag only occurs if the INR exceeds 3.5",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjZ0dvTU4wVXNBYTQ/edit"
+		}
+	],
+
+	"misc": [
+		{
+			"id": "m100",
+			"date": "4/27/2012",
+			"title": "StripReport",
+			"descripton": "Strip Report",
+			"attachment": "https://drive.google.com/file/d/0B-qMODqZ2EkjenZjSExFcUxVbzA/edit"
+		}
+	]
+};

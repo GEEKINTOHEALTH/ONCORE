@@ -1,0 +1,220 @@
+<div class="container" style="width:90%">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="page-header">
+				<h1> Treatments <small style="color:silver;"> list of previous treatments</small></h1>
+				<hr />
+				<p>
+					Enter information about your previous medical treatments.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="row clearfix" style="text-align: right;">
+		<a class="btn btn-primary" id="addButton"> <i class="fa fa-plus fa-lg"></i>&nbsp;&nbsp;Add treatment</a>
+		<br />
+		<br />
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column" id="table_container"></div>
+	</div>
+	<div class="row clearfix centered" >
+		<br />
+		<a class="btn btn-info" href="#/case"> <i class="fa fa-arrow-circle-o-left  fa-lg"></i>&nbsp;&nbsp;Back</a>
+		<a class="btn btn-warning" href="#"> <i class="fa fa-check-circle-o  fa-lg"></i>&nbsp;&nbsp;Save</a>
+		<a class="btn btn-info" href="#/doctornotes"> <i class="fa fa-arrow-circle-o-right  fa-lg"></i>&nbsp;&nbsp;Go to Next Step</a>
+	</div>
+</div>
+
+<script id="table_template" type="text/template">
+	<table class="table table-hover table-condensed">
+	<thead>
+	<tr>
+	<th> # </th>
+	<th> Date </th>
+	<th> Treatment </th>
+	<th> Notes </th>
+	<th> Action </th>
+	</tr>
+	</thead>
+	<tbody >
+	{{#rows}}
+	<tr>
+	<td width="1%"></td>
+	<td> {{date}} </td>
+	<td> {{treatment}} </td>
+	<td width="30%"> {{notes}} </td>
+	<td> <a href="" data-toggle="tooltip" data-original-title="Edit"><i row-id="{{id}}" class="fa fa-pencil-square-o fa-lg edit_button"></i></a>
+	<a href="" data-toggle="tooltip" data-original-title="Delete"><i row-id="{{id}}" class="fa fa-trash-o  fa-lg delete_button"></i></a>
+	</tr>
+	{{/rows}}
+
+	</tbody>
+
+	</table>
+
+</script>
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="modal fade" id="modal_form" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								X
+							</button>
+							<h4 class="modal-title" id="myModalLabel"> Treatment </h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" id="item_form">
+								<input id="item_id" name="item_id" type="hidden">
+								<fieldset>
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="name">Treatment</label>
+										<div class="col-md-4">
+											<input id="treatment" name="treatment" placeholder="enter treatment" class="form-control input-md" type="text">
+										</div>
+									</div>
+
+									<div class="form-group" id="date_holder">
+										<label class="col-md-4 control-label" for="filebutton">Date</label>
+										<div class="col-md-4">
+											<input type="text" id="date" class="form-control input-md">
+										</div>
+									</div>
+
+									<!-- Textarea -->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="desc">Notes</label>
+										<div class="col-md-4">
+											<textarea class="form-control" id="notes" name="notes"></textarea>
+										</div>
+									</div>
+								</fieldset>
+							</form>
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+							<button id="saveButton" type="button" class="btn btn-primary">
+								Save
+							</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var screenItems = new LocalTable("user.treatments_table");
+
+	function renderTableUI(data) {
+		var template = $('#table_template').html();
+		var html = Mustache.to_html(template, {
+			rows : data
+		});
+		$("#table_container").html(html).fadeIn('slow');
+		$('a').tooltip();
+	}
+
+	function refreshView() {
+		renderTableUI(screenItems.getRows());
+	}
+
+	function loadSampleTreatments() {
+		var allTreatments = sample_case.treatments;
+		//console.log(allTreatments);
+		for (var i = 0; i < allTreatments.length; i++) {
+			var oneItem = {};
+			var existingDemoObject = screenItems.findRow(allTreatments[i].id);
+
+			if (existingDemoObject) {
+				oneItem = existingDemoObject;
+			} else {
+				oneItem.id = allTreatments[i].id;
+				screenItems.addRow(oneItem);
+			}
+			console.log("Demo id.." + oneItem.id);
+			oneItem.treatment = allTreatments[i].title;
+			oneItem.date = allTreatments[i].date;
+			oneItem.notes = allTreatments[i].description;
+			oneItem.attachement = "attachement " + new Date();
+		}
+		screenItems.save();
+	}
+
+	(function() {
+		screenItems.load();
+		// Loaded for demo
+		loadSampleTreatments();
+
+		var dp = $('#date').datepicker();
+		dp.on('changeDate', function(e) {
+			console.log(JSON.stringify(e.date));
+			console.log($("#date_value").val());
+			dp.datepicker('hide');
+		});
+
+		renderTableUI(screenItems.getRows());
+
+		$("#addButton").click(function() {
+			$("#item_id").val('');
+			$('#item_form').resetForm();
+			$('#modal_form').modal('show');
+		});
+
+		$("#saveButton").click(function() {
+			var currentId = $("#item_id").val();
+			var oneItem = {};
+			if (currentId != '') {
+				oneItem = screenItems.findRow(currentId);
+				console.log("Existing item case.");
+			} else {
+				oneItem.id = new Date().getTime();
+				screenItems.addRow(oneItem);
+				console.log("New item case");
+			}
+			oneItem.treatment = $("#treatment").val();
+			oneItem.date = $("#date").val();
+			oneItem.notes = $("#notes").val();
+			oneItem.attachement = "attachement " + new Date();
+
+			screenItems.save();
+			$("#item_id").val('');
+			// Update View
+			refreshView();
+			$('#modal_form').modal('hide');
+			$('#item_form').resetForm();
+		});
+
+		$('body').on('click', '.edit_button', function(event) {
+			event.preventDefault();
+			var selectedId = $(this).attr('row-id');
+			var selectedObject = screenItems.findRow(selectedId);
+			$("#treatment").val(selectedObject.treatment);
+			$("#notes").val(selectedObject.notes);
+			$("#date").val(selectedObject.date);
+			$("#item_id").val(selectedObject.id);
+			$('#modal_form').modal('show');
+		});
+
+		$('body').on('click', '.delete_button', function(event) {
+			event.preventDefault();
+			var selectedId = $(this).attr('row-id');
+			screenItems.deleteRow(selectedId);
+			screenItems.save();
+			refreshView();
+		});
+	})(); 
+</script>
+

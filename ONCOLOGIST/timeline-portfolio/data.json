@@ -1,0 +1,88 @@
+{
+	"timeline": {
+		"headline": "Pattie Martin",
+		"type": "default",
+		"startDate": "2009,1",
+		"text": "<i><span class='c1'> 43 years,</span> <span class='c2'>Female</span></i>",
+		"asset": {
+			"media": "http://api.randomuser.me/portraits/women/81.jpg",
+			"credit": "<a href='http://dribbble.com/shots/221641-iOS-Icon'>iOS Icon by Asher</a>",
+			"caption": ""
+		},
+		"date": [
+			{
+				"startDate": "2009,2",
+				"headline": "Reported pain in chest and visited doctors office. The pain subsided in 2 days",
+				"text": "X-Ray images were ordered",
+				"asset": {
+					"media": "https://youtu.be/SC-NggHZ_ZQ?t=6m29s",
+					"credit": "",
+					"caption": ""
+				}
+			}, {
+				"startDate": "2009,5",
+				"headline": "Neuro oncology outpatient notes",
+				"text": "",
+				"asset": {
+					"media": "<iframe width='600' height='300' src='../attachements/doctors_notes/01-16-2014-DocNote-1-HuJethro.pdf'></iframe>",
+					"credit": "",
+					"caption": ""
+				}
+			}, {
+				"startDate": "2009,7",
+				"headline": "MRI scan images got from labs",
+				"text": "",
+				"asset": {
+					"media": "http://themarketghana.com/news/health/14468/docs/news/7/1130MRI_scans_cjpg.jpg",
+					"credit": "",
+					"caption": ""
+				}
+			}, {
+				"startDate": "2009,10",
+				"headline": "Got a Complete blood count report",
+				"text": "",
+				"asset": {
+					"media": "http://knowyourblood.com/wp-content/uploads/2013/10/CBC-test-results.png",
+					"credit": "",
+					"caption": ""
+				}
+			}, {
+				"startDate": "2010,3",
+				"headline": "Uploaded doctor notes from my last visit",
+				"text": "",
+				"asset": {
+					"media": "http://letterheadtemplates.info/wp-content/uploads/2016/06/doctor-notes-template-oohology-tryst-doctors-note2.jpg",
+					"credit": "",
+					"caption": ""
+				}
+			}, {
+				"startDate": "2010,4",
+				"headline": "Got severe migranie type headache. Went to doctors office",
+				"text": "The pain was unussually severe. had to call the doctors office and they called me in for a scan.",
+				"asset": {
+					"media": "https://cdn1.iconfinder.com/data/icons/health-conditions-diseases-3/256/17-48.png",
+					"credit": "",
+					"caption": ""
+				}
+			}, {
+				"startDate": "2010,8",
+				"headline": "Got admitted to hospital",
+				"text": "Went to the doctors office and hey seem to have observed circulatory disorders (diseases of the heart and blood vessels) and had me admit in to the hospital. Stayed in hosptial for 2 days and then got discharged with some medication",
+				"asset": {
+					"media": "",
+					"credit": "",
+					"caption": ""
+				}
+			}, {
+				"startDate": "2010,12",
+				"headline": "Dental Exam",
+				"text": "Went to dentist for a regular exam and they took the X-ray",
+				"asset": {
+					"media": "../attachements/misc/dental.jpeg",
+					"credit": "",
+					"caption": ""
+				}
+			}
+		]
+	}
+}

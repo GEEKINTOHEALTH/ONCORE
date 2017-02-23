@@ -1,0 +1,43 @@
+<div class="container" style="margin-top:100px;" id="docs_panel"></div>
+
+<div id="DOCS_TEMPLATE" style="display: none;">
+	{{#doctors}}
+	<div class="row centered" >
+
+		<div class="col-md-6 col-lg-offset-3">
+			<div style="border:1px solid gray;padding:10px;margin-top: 5px;background-color: #f5f5f5;">
+				<img src="{{photo}}" alt="" />
+				<h1>{{name}}</h1>
+				<hr />
+				<h4>{{speciality}}</h4>
+				<p style="text-align: justify;">
+					{{{description}}}
+				</p>
+			</div>
+		</div>
+	</div>
+	{{/doctors}}
+</div>
+
+<script type="text/javascript">
+	(function() {
+		$.blockUI;
+
+		Tabletop.init({
+			key : "1vrQXue3Lju0fz40Clu2VFRzwWENU5_I9YDYq91S0ysQ",
+			callback : showDocs,
+			simpleSheet : true
+		});
+
+		function showDocs(data, tabletop) {
+			//log(JSON.stringify(data));
+			var template = $('#DOCS_TEMPLATE').html();
+			html = Mustache.to_html(template, {
+				doctors : data
+			});
+			$("#docs_panel").html(html);
+			$.unblockUI;
+		}
+
+	})(); 
+</script>

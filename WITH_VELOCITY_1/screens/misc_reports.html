@@ -1,0 +1,232 @@
+<div class="container" style="width:90%">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="page-header">
+				<h1> Misc. reports <small style="color:silver;">list of other reports relavent to your health</small></h1>
+				<hr />
+				<p>
+					Any other reports that you would like to share that would help in the second opinion
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="row clearfix" style="text-align: right;">
+		<a class="btn btn-primary" id="addButton"> <i class="fa fa-plus fa-lg"></i>&nbsp;&nbsp;Add Misc. Report</a>
+		<br />
+		<br />
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12" id="table_container"></div>
+	</div>
+	<div class="row clearfix centered" >
+		<br />
+		<a class="btn btn-info" href="#/lab_reports"> <i class="fa fa-arrow-circle-o-left  fa-lg"></i>&nbsp;&nbsp;Back</a>
+		<a class="btn btn-warning" href="#"> <i class="fa fa-check-circle-o  fa-lg"></i>&nbsp;&nbsp;Save</a>
+		<a class="btn btn-info" href="#/singlepageview"> <i class="fa fa-arrow-circle-o-right  fa-lg"></i>&nbsp;&nbsp;Preview Case</a>
+	</div>
+</div>
+
+<script id="misc_table_template" type="text/template">
+	<table class="table table-hover table-condensed">
+	<thead>
+	<tr>
+	<th> # </th>
+	<th> Title </th>
+	<th> Date </th>
+	<th> Comments </th>
+	<th> Action </th>
+	</tr>
+	</thead>
+	<tbody >
+	{{#rows}}
+	<tr>
+	<td width="1%"></td>
+	<td> {{title}} </td>
+	<td> {{date}} </td>
+	<td width="30%"> {{comments}} </td>
+	<td> <a href="" data-toggle="tooltip" data-original-title="Edit"><i row-id="{{id}}" class="fa fa-pencil-square-o fa-lg edit_button"></i></a>
+	<a href="" data-toggle="tooltip" data-original-title="Delete"><i row-id="{{id}}" class="fa fa-trash-o  fa-lg delete_button"></i></a>
+	</tr>
+	{{/rows}}
+
+	</tbody>
+
+	</table>
+
+</script>
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="modal fade" id="modal_form" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								X
+							</button>
+							<h2 class="modal-title" id="myModalLabel"> Misc. Report </h2>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" id="item_form">
+								<input id="item_id" name="item_id" type="hidden">
+								<fieldset>
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="name">Title</label>
+										<div class="col-md-4">
+											<input id="title" name="title" placeholder="enter report title" class="form-control input-md" type="text">
+										</div>
+									</div>
+
+									<div class="form-group" id="date_holder">
+										<label class="col-md-4 control-label" for="date">Date</label>
+										<div class="col-md-4">
+											<input type="text" id="date" name="date" class="form-control input-md">
+										</div>
+									</div>
+
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="speciality">Comments</label>
+										<div class="col-md-4">
+											<textarea class="form-control" id="comments" name="comments"></textarea>
+										</div>
+									</div>
+
+									<!-- Textarea -->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="desc">Attach report</label>
+										<div class="col-md-4">
+											<input type="file" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="desc">Attachement</label>
+										<div class="col-md-4">
+											<iframe id="preview_frame" name="preview_frame" frameborder="0" src="" width="300" height="200"></iframe>
+										</div>
+									</div>
+								</fieldset>
+							</form>
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+							<button id="saveButton" type="button" class="btn btn-primary">
+								Save
+							</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var screenItems = new LocalTable("user.misc_table");
+
+	function renderTableUI(data) {
+		var template = $('#misc_table_template').html();
+		var html = Mustache.to_html(template, {
+			rows : data
+		});
+		$("#table_container").html(html).fadeIn('slow');
+		$('a').tooltip();
+	}
+
+	function refreshView() {
+		renderTableUI(screenItems.getRows());
+	}
+
+	function loadMisc() {
+		var allTreatments = sample_case.misc;
+		for (var i = 0; i < allTreatments.length; i++) {
+			var oneItem = {};
+			var existingDemoObject = screenItems.findRow(allTreatments[i].id);
+
+			if (existingDemoObject) {
+				oneItem = existingDemoObject;
+			} else {
+				oneItem.id = allTreatments[i].id;
+				screenItems.addRow(oneItem);
+			}
+			oneItem.title = allTreatments[i].title;
+			oneItem.date = allTreatments[i].date;
+			oneItem.comments = allTreatments[i].comments;
+			oneItem.attachement = allTreatments[i].attachment;
+		}
+		screenItems.save();
+	}
+
+	(function() {
+		screenItems.load();
+		loadMisc();
+		var dp = $('#date').datepicker();
+		dp.on('changeDate', function(e) {
+			console.log(JSON.stringify(e.date));
+			console.log($("#date_value").val());
+			dp.datepicker('hide');
+		});
+
+		renderTableUI(screenItems.getRows());
+
+		$("#addButton").click(function() {
+			$("#item_id").val('');
+			$('#item_form').resetForm();
+			$('#modal_form').modal('show');
+		});
+
+		$("#saveButton").click(function() {
+			var currentId = $("#item_id").val();
+			var oneItem = {};
+			if (currentId != '') {
+				oneItem = screenItems.findRow(currentId);
+				console.log("Existing item case.");
+			} else {
+				oneItem.id = new Date().getTime();
+				screenItems.addRow(oneItem);
+				console.log("New item case");
+			}
+			oneItem.title = $("#title").val();
+			oneItem.date = $("#date").val();
+			oneItem.comments = $("#comments").val();
+			oneItem.attachement = "attachement " + new Date();
+
+			screenItems.save();
+			$("#item_id").val('');
+			// Update View
+			refreshView();
+			$('#modal_form').modal('hide');
+			$('#item_form').resetForm();
+		});
+
+		$('body').on('click', '.edit_button', function(event) {
+			event.preventDefault();
+			var selectedId = $(this).attr('row-id');
+			var selectedObject = screenItems.findRow(selectedId);
+			$("#title").val(selectedObject.title);
+			$("#comments").val(selectedObject.comments);
+			$("#date").val(selectedObject.date);
+			$("#item_id").val(selectedObject.id);
+			$("#preview_frame").attr('src', selectedObject.attachement);
+			$('#modal_form').modal('show');
+		});
+
+		$('body').on('click', '.delete_button', function(event) {
+			event.preventDefault();
+			var selectedId = $(this).attr('row-id');
+			screenItems.deleteRow(selectedId);
+			screenItems.save();
+			refreshView();
+		});
+	})(); 
+</script>
+

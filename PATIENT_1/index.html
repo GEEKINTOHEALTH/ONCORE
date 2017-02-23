@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Second Opinion</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+		<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" media="screen">
+		<link href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/default.css">
+		<style type="text/css" media="screen">
+			.li > a {
+				color:white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid" style="background: #00A0C6;color:white;">
+				<div class="navbar-header" >
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+						<span class="icon-bar"></span><span class="icon-bar"></span><span
+						class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" id="home" href="#/home"
+					style="font-family: Lato; font-size: 25px;color:white;">ICORE</a>
+				</div>
+				<div class="collapse navbar-collapse">
+
+					<ul class="nav navbar-nav pull-right">
+						<li class="dropdown" id="my_account_link">
+							<a href="" class="dropdown-toggle" data-toggle="dropdown" style="font-family: Lato; font-size: 20px;color:white;"> Account<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a id="user_inbox" href="#/my_cases">My Cases</a>
+								</li>
+								<li>
+									<a href="#/profile">Profile</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a href="#/logout">Logout</a>
+								</li>
+							</ul>
+						</li>
+						<!-- li>
+							<a href="#/search"
+							style="font-family: Lato; font-size: 20px;">Search</a>
+						</li -->
+						<li>
+							<a href="#/contact"
+							style="font-family: Lato; font-size: 20px;color:white;">Contact us</a>
+						</li>
+						<li id="login_link">
+							<a href="#/login"
+							style="font-family: Lato; font-size: 20px;">Login</a>
+						</li>
+
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+
+		<div id="stage">
+			<div class="container" >
+				<h1 id="">content goes here</h1>
+			</div>
+		</div>
+		<div class="container-fluid" style="margin-top: 50px;border-top:1px dotted silver;background: #fff;" id="footer">
+			<div class="row" style="margin-top: 10px;">
+				<div class="col-md-8">
+					<p class="muted pull-left" style="padding-left: 15px;">
+					<a href="#">Terms of Service</a>
+					<a href="#">Privacy</a>
+					<a href="#">Security</a>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<p class="muted pull-right" style="padding-right: 15px;">
+						Copyright &copy; 2017 www.icore.com
+					</p>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.3.5/tabletop.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.66.0-2013.10.09/jquery.blockUI.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jStorage/0.4.4/jstorage.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
+		<script lang="javascript" src="js/init.js"></script>
+		<script lang="javascript" src="js/routes.js"></script>
+		<script lang="javascript" src="js/LocalTable.js"></script>
+		<script lang="javascript" src="js/SessionManager.js"></script>
+		<script lang="javascript" src="js/jquery.form.min.js"></script>
+		<script lang="javascript" src="js/sample_case.json"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				init();
+				setupRoutes();
+				$("#login_link").show();
+				$("#my_account_link").hide();
+			});
+		</script>
+	</body>
+</html>

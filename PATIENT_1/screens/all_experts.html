@@ -1,0 +1,63 @@
+<style type="text/css" media="screen">
+	.panel {
+		box-shadow: rgba(6, 6, 6, 0.1) 0px -1px 0px;
+	}
+</style>
+
+<div class="container" style="margin-top:100px;">
+	<div class="" id="experts_panel"></div>
+</div>
+
+<script id="DOC_TEMPLATE" type="text/template">
+	{{#doctors}}
+	<div class="panel panel-default">
+	<div class="panel-heading" style="background-color:white;">
+	<span style="font-size: 2em;">{{name}}</span> &nbsp; &nbsp;  <small><span style="font-size: 1.5em;color:gray;">{{speciality}}</span></small>
+	</div>
+	<div class="panel-body centered">
+
+	<img src="{{photo}}" alt="" class="img-circle"/>
+	<hr />
+	<p class="" style="text-align: justify;max-height: 120px;overflow:hidden;text-overflow: ellipsis;">
+	{{{description}}}
+	</p>
+
+	<div class="centered">
+	<a href="#/details/{{doctorid}}" class="btn btn-success active" role="button">See More</a>
+	</div>
+
+	</div>
+	</div>
+	{{/doctors}}
+
+</script>
+<script type="text/javascript">
+	(function() {
+		$('body').css('background-color', '#f5f5f5');
+		Tabletop.init({
+			key : "1vrQXue3Lju0fz40Clu2VFRzwWENU5_I9YDYq91S0ysQ",
+			callback : showInfo,
+			simpleSheet : true
+		});
+
+		function showInfo(data, tabletop) {
+			//log(JSON.stringify(data));
+			DATABASE = {};
+
+			// put it in a local store
+			for (var i = 0; i < data.length; i++) {
+				//DATABASE[data[i].doctorid] = data[i];
+				$("body").data(data[i].doctorid, data[i]);
+			}
+
+			var template = $('#DOC_TEMPLATE').html();
+			html = Mustache.to_html(template, {
+				doctors : data
+			});
+			$("#experts_panel").append(html);
+		}
+
+	})();
+
+</script>
+

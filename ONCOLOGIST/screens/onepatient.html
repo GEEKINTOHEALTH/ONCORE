@@ -1,0 +1,807 @@
+<div class="container-fluid text-left">
+
+	<div class="row" style="margin-top: 15px;">
+		<div class="col-sm-12">
+
+			<div class="pull-right" id="button-bars">
+				`<a onclick="PatientViewController.showHorizontalTimeline();" class="btn btn-warning" href="#"> <i class="fa fa-calendar-minus-o fa-lg"></i>&nbsp;Timeline [H]</a>
+				<a onclick="PatientViewController.showVerticalTimeline();" class="btn btn-primary" href="#"> <i class="fa fa-calendar-plus-o fa-lg"></i>&nbsp;Timeline [v]</a>
+				<a onclick="TogetherJS(this); return false;" class="btn btn-success" href="#"> <i class="fa fa-share-alt fa-lg"></i>&nbsp;Collaborate</a>
+				<a onclick="PatientViewController.startVideoConference();" class="btn btn-info" href="#"> <i class="fa fa-video-camera fa-lg"></i>&nbsp;Video</a>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="row" style="margin-top: 15px;">
+		<div class="col-sm-12">
+			<div class="card-panel pull-right text-right">
+				<p class="hospital-data">
+					MRN No. 37455901
+					<br/>
+					Admitted on 05/24/1990
+					<br/>
+					Dep. of Physical Therapy
+					<br/>
+					Room 7, Bed 5
+				</p>
+			</div>
+			<div class="card-1" style="background: white;padding-left: 20px">
+				<table border="0">
+					<tr>
+						<td width="90px" align="center" valign="middle"><img src="http://api.randomuser.me/portraits/women/81.jpg" width="90"></td>
+						<td style="padding:10px;padding-left: 20px;" ><h4 id="user-name">Patti Martin</h4>
+						<p class="profile-data">
+							43 years, Female
+							<br/>
+							<span>DOB:</span>
+							January 30, 1974
+							<br/>
+							<span>Diagnosis:</span>
+							HTM
+							<br/>
+							<span>Allergy:</span>
+							<span class="flag-red">Novacatine (coma)</span>
+						</p></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="mrow">
+		<div class="mitem">
+			<div class="card-panel card-1">
+				<h4 class="section-head" data-screenname="images"><i class="fa fa-image"></i>Images</h4>
+				<div id="images-container" class="text-center" style="margin:5px;">
+					<a href="img/mocks/knee.jpg">
+					<div class="inline-image">
+						<img src="img/mocks/knee.jpg" width="100%" />
+					</div> </a>
+					<a href="img/mocks/ctscan.jpg">
+					<div class="inline-image">
+						<img src="img/mocks/ctscan.jpg" width="100%" />
+					</div> </a>
+					<a href="img/mocks/knee.jpg">
+					<div class="inline-image">
+						<img src="img/mocks/knee.jpg" width="100%" />
+					</div> </a>
+					<a href="img/mocks/knee.jpg">
+					<div class="inline-image">
+						<img src="img/mocks/chest.jpg" width="100%" />
+					</div> </a>
+					<a href="img/mocks/neck.jpg">
+					<div class="inline-image">
+						<img src="img/mocks/neck.jpg" width="100%" />
+					</div> </a>
+					<a href="img/mocks/knee.jpg">
+					<div class="inline-image">
+						<img src="img/mocks/chest.jpg" width="100%" />
+					</div> </a>
+					<a href="img/mocks/hand.jpg">
+					<div class="inline-image">
+						<img src="img/mocks/hand.jpg" width="100%" />
+					</div> </a>
+				</div>
+			</div>
+		</div>
+
+		<div class="mitem">
+			<div class="card-panel card-1">
+				<h4 class="section-head" data-screenname="history"><i class="fa fa-h-square"></i>Hospital history</h4>
+				<div id="visits_chart" class="chart-block"></div>
+			</div>
+		</div>
+		<div class="mitem">
+			<div class="card-panel card-1" style="height:400px;">
+				<h4 class="section-head" data-screenname="genogram"><i class="fa fa-sitemap"></i>Genogram</h4>
+				<!-- img src="img/mocks/genogram.png" width="100%"  / -->
+				<div id="genogram-pic"></div>
+			</div>
+		</div>
+
+		<div class="mitem">
+			<div class="card-panel card-1">
+				<h4 class="section-head" data-screenname="vital"><i class="fa fa-bar-chart"></i>Vitals</h4>
+				<table class="table table-condensed table-hover">
+					<tbody>
+						<tr>
+							<td valign="middle"  width="50%" style="border-top: none;"><span id="temps-trend">Loading..</span></td>
+							<td  valign="middle" width="50%" style="border-top: none;" class="leftpad-20">
+							<p>
+								Temperature 36.3
+							</p></td>
+						</tr>
+						<tr>
+							<td valign="middle"><span id="heart-rate-trend">Loading..</span></td>
+							<td valign="middle" class="leftpad-20">
+							<p>
+								Heart Rate 90
+							</p></td>
+						</tr>
+						<tr>
+							<td><span id="respiration-trend">Loading..</span></td>
+							<td class="leftpad-20">
+							<p>
+								Respiration 14
+							</p></td>
+						</tr>
+						<tr>
+							<td><span id="sp-trend">Loading..</span></td>
+							<td class="leftpad-20">
+							<p>
+								SpO2 96
+							</p></td>
+						</tr>
+						<tr>
+							<td><span id="bps-trend">Loading..</span></td>
+							<td class="leftpad-20">
+							<p>
+								BPS 120
+							</p></td>
+						</tr>
+						<tr>
+							<td><span id="bpd-trend">Loading..</span></td>
+							<td class="leftpad-20">
+							<p>
+								BPD 60
+							</p></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="mitem">
+			<div class="card-panel card-1">
+				<h4 class="section-head" data-screenname="measures"><i class="fa fa-line-chart"></i>Measurements</h4>
+				<div id="measurement-container" style="margin:5px;">
+					<div class="row">
+						<div class="col-sm-6">
+							<p>
+								<b>WBC</b>
+								11.1
+							</p>
+							<div class="trend-panel">
+								<div id="wbc-trend"></div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<p>
+								<b>Physcocis</b>
+								0.1
+							</p>
+							<div class="trend-panel">
+								<div id="physcocis-trend"></div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<p>
+								<b>Glucose</b>
+								13.2
+							</p>
+							<div class="trend-panel">
+								<div id="glucose-trend"></div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<p>
+								<b>Mood</b>
+								0
+							</p>
+							<div class="trend-panel">
+								<div id="mood-trend"></div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<p>
+								<b>Temperature</b>
+								37.1C
+							</p>
+							<div class="trend-panel">
+								<div id="temp-trend"></div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<p>
+								<b>Haloperidol</b>
+								6.0 mg
+							</p>
+							<div class="trend-panel">
+								<div id="haloperidol-trend"></div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<p>
+								<b>Regular insulin</b>
+								3 U
+							</p>
+							<div class="trend-panel">
+								<div id="insulin-trend"></div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<p>
+								<b>Lithium</b>
+								0.56
+							</p>
+							<div class="trend-panel">
+								<div id="lithium-trend"></div>
+							</div>
+						</div>
+					</div>
+					<!-- img src="img/mocks/measurements.png" width="100%" / -->
+				</div>
+			</div>
+		</div>
+
+		<div class="mitem">
+			<div class="card-panel card-1">
+				<h4 class="section-head" data-screenname="vital"><i class="fa fa-user-md"></i>Care Team History</h4>
+				<div id="mynetwork" style="height: 400px;"></div>
+			</div>
+		</div>
+		<div class="mitem">
+			<div class="card-panel card-1">
+				<h4 class="section-head" data-screenname="labs"><i class="fa fa-flask"></i>Labs</h4>
+				<table class="table table-condensed table-hover" style="margin:0px 20px;font-size: 12px;width:90%;">
+					<thead>
+						<th> CBC Henogram </th>
+						<th> 05/20 </th>
+						<th> 05/21 </th>
+						<th> 05/22 </th>
+					</thead>
+					<tbody>
+						<tr>
+							<td> WBC </td>
+							<td> 118 </td>
+							<td> 118 </td>
+							<td> 118 </td>
+						</tr>
+						<tr>
+							<td> RBC </td>
+							<td> 109 </td>
+							<td> 109 </td>
+							<td> 109 </td>
+						</tr>
+						<tr>
+							<td> HGB </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+						</tr>
+						<tr>
+							<td> Hematroctit </td>
+							<td> 118 </td>
+							<td> 118 </td>
+							<td> 118 </td>
+						</tr>
+						<tr>
+							<td> MCV </td>
+							<td> 109 </td>
+							<td> 109 </td>
+							<td> 109 </td>
+						</tr>
+						<tr>
+							<td> MCH,POC </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+						</tr>
+						<tr>
+							<td> MCHC </td>
+							<td> 18 </td>
+							<td> 18 </td>
+							<td> 18 </td>
+						</tr>
+						<tr>
+							<td> RCD </td>
+							<td> 109 </td>
+							<td> 109 </td>
+							<td> 109 </td>
+						</tr>
+						<tr>
+							<td> MPV </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+						</tr>
+						<tr>
+							<td> Platelets </td>
+							<td> 118 </td>
+							<td> 118 </td>
+							<td> 118 </td>
+						</tr>
+					</tbody>
+				</table>
+				<hr />
+				<table class="table table-condensed table-hover" style="margin:0px 20px;font-size: 12px;width:90%;">
+					<thead>
+						<th> Coagulation </th>
+						<th> 05/20 </th>
+						<th> 05/21 </th>
+						<th> 05/22 </th>
+					</thead>
+					<tbody>
+						<tr>
+							<td> PT </td>
+							<td> 118 </td>
+							<td> 118 </td>
+							<td> 118 </td>
+						</tr>
+						<tr>
+							<td> PTT </td>
+							<td> 109 </td>
+							<td> 109 </td>
+							<td> 109 </td>
+						</tr>
+						<tr>
+							<td> HGB </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+						</tr>
+						<tr>
+							<td> Hematroctit </td>
+							<td> 118 </td>
+							<td> 118 </td>
+							<td> 118 </td>
+						</tr>
+					</tbody>
+				</table>
+				<hr />
+				<table class="table table-condensed table-hover" style="margin:0px 20px;font-size: 12px;width:90%;">
+					<thead>
+						<th> Cardiac Profile </th>
+						<th> 05/20 </th>
+						<th> 05/21 </th>
+						<th> 05/22 </th>
+					</thead>
+					<tbody>
+						<tr>
+							<td> WBC </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+						</tr>
+						<tr>
+							<td> RBC </td>
+							<td> 18 </td>
+							<td> 18 </td>
+							<td> 18 </td>
+						</tr>
+						<tr>
+							<td> HGB </td>
+							<td> 109 </td>
+							<td> 109 </td>
+							<td> 109 </td>
+						</tr>
+						<tr>
+							<td> Hematroctit </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+							<td> 0.4 </td>
+						</tr>
+						<tr>
+							<td> MCV </td>
+							<td> 118 </td>
+							<td> 118 </td>
+							<td> 118 </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="mitem">
+			<div class="card-panel card-1">
+				<h4 class="section-head" data-screenname="medications"><i class="fa fa-medkit"></i>Medications</h4>
+				<div style="padding:10px;padding-bottom: 0px;">
+					<table class="table table-condensed table-hover" >
+						<tbody>
+							<tr>
+								<td style="border-top:none;" width="50%"> Norvasc </td>
+								<td style="border-top:none;" width="50%"> 5mg daily </td>
+							</tr>
+							<tr>
+								<td  width="50%"> Lisinopril </td>
+								<td  width="50%"> 10mg daily </td>
+							</tr>
+							<tr>
+								<td  width="50%"> Carvedolil </td>
+								<td  width="50%"> 6mg PO B/D </td>
+							</tr>
+							<tr>
+								<td  width="50%"> Lasix </td>
+								<td  width="50%"> 40mg PO B/D </td>
+							</tr>
+							<tr>
+								<td  width="50%"> Ramipril </td>
+								<td  width="50%"> 5mg PO daily </td>
+							</tr>
+							<tr>
+								<td  width="50%"> Norvasc </td>
+								<td  width="50%"> 5mg PO daily </td>
+							</tr>
+							<tr>
+								<td  width="50%"> Lisinopril </td>
+								<td  width="50%"> 10mg PO B/D </td>
+							</tr>
+							<tr>
+								<td  width="50%"> Carvedolil </td>
+								<td  width="50%"> 6mg PO B/D </td>
+							</tr>
+							<tr>
+								<td  width="50%"> Lasix </td>
+								<td  width="50%"> 40mg PO B/D </td>
+							</tr>
+							<tr>
+								<td  width="50%"> Norvasc </td>
+								<td  width="50%"> 10mg PO B/D </td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="mitem">
+			<div class="card-panel card-1">
+				<h4 class="section-head" data-screenname="medics"><i class="fa fa-stethoscope"></i>Pathology</h4>
+				<p style="padding:0px;" onclick="PatientViewController.showPathalogyViewer()">
+					<img src="img/mocks/pathology.png" width="100%" class="image-responsive center-block" alt="" />
+				</p>
+			</div>
+		</div>
+		<div class="mitem">
+			<div class="card-panel card-1">
+				<h4 class="section-head" data-screenname="medics"><i class="fa fa-stethoscope"></i>Oncology</h4>
+				<p style="padding:0px;" onclick="PatientViewController.showDICOMViewer()">
+					<img src="img/mocks/pathology.png" width="100%" class="image-responsive center-block" alt="" />
+				</p>
+			</div>
+		</div>
+		<div class="mitem">
+			<div class="card-panel card-1">
+				<h4 class="section-head" data-screenname="notes"><i class="fa fa-comments-o"></i>Notes</h4>
+				<p class="notes-para">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+					<br/>
+					<span class="text-muted">Dr. Simon, 12/12/12</span>
+				</p>
+				<p class="notes-para">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+					<br/>
+					<span class="text-muted">Dr. Simon, 12/12/12</span>
+				</p>
+				<p class="notes-para">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+					<br/>
+					<span class="text-muted">Dr. Simon, 12/12/12</span>
+				</p>
+				<p class="notes-para">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+					<br/>
+					<span class="text-muted">Dr. Simon, 12/12/12</span>
+				</p>
+				<p class="notes-para">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+					<br/>
+					<span class="text-muted">Dr. Simon, 12/12/12</span>
+				</p>
+				<p class="notes-para">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+					<br/>
+					<span class="text-muted">Dr. Simon, 12/12/12</span>
+				</p>
+			</div>
+		</div>
+		<div class="mitem">
+			<div class="card-panel card-1">
+				<h4 class="section-head" data-screenname="clinical-data"><i class="fa fa-stethoscope"></i>Clinical data</h4>
+				<button class="btn btn-warning" onclick="$('body').trigger('search-screen');">
+					SHOW
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	PatientViewController = {
+		showHorizontalTimeline : function() {
+			$("#fullscreen_stage").load("screens/frame_timeline.html");
+			showFullScreen();
+		},
+		showVerticalTimeline : function() {
+			$("#fullscreen_stage").load("screens/frame_vertical_timeline.html");
+			showFullScreen();
+		},
+		startVideoConference : function() {
+			$("#fullscreen_stage").load("screens/frame_video_conference.html");
+			showFullScreen();
+		},
+		showPathalogyViewer : function() {
+			$("#fullscreen_stage").load("screens/frame_pathology_viewer.html");
+			showFullScreen();
+		},
+		showDICOMViewer : function() {
+			$("#fullscreen_stage").load("screens/frame_dicom_viewer.html");
+			showFullScreen();
+		}
+	};
+
+	// -------   VOLTAGE CHARTS ------------------
+	var visitOptions = {
+		color : "#fff",
+		series : {
+			lines : {
+				fill : true,
+				fillColor : 'rgba(0,100,200,0.1)',
+				lineWidth : 1
+			},
+			legend : {
+				labelColor : "silver",
+			}
+		},
+		grid : {
+			backgroundColorx : {
+				colors : ["rgba(0,0,100,0.2)", "rgba(0,0,0,0.1)"]
+			},
+			borderColor : "so;ver",
+			borderWidth : {
+				top : 1,
+				right : 1,
+				bottom : 1,
+				left : 1
+			}
+		},
+		yaxis : {
+			tickColor : "rgba(0,0,0,0.2"
+		},
+		xaxis : {
+			tickColor : "rgba(0,0,0,0.2)",
+			mode : "time",
+			minTickSize : [1, "hour"],
+			min : (new Date(2016, 1, 1)).getTime(),
+			max : (new Date(2016, 12, 31)).getTime(),
+			//twelveHourClock : true
+		}
+	};
+	var trendData = [];
+	var voltageChart = undefined;
+	var visitsDataSet = [], insideDataSet = [];
+
+	function drawMeasurementTrendLines() {
+		$("#wbc-trend").sparkline([90, 91, 90, 92], {
+			type : 'line',
+			width : '100%',
+			height : '90',
+			spotRadius : 4,
+			fillColor : 'transparent',
+			lineColor : '#7f7f00',
+		});
+
+		$("#physcocis-trend").sparkline([21, 89, 84, 25], {
+			type : 'line',
+			width : '100%',
+			height : '90',
+			spotRadius : 4,
+			fillColor : 'transparent',
+			lineColor : '#7f7f00',
+		});
+		$("#glucose-trend").sparkline([37, 64, 62, 96], {
+			type : 'line',
+			width : '100%',
+			height : '90',
+			spotRadius : 4,
+			fillColor : 'transparent',
+			lineColor : '#7f7f00',
+		});
+		$("#mood-trend").sparkline([21, 58, 96, 82], {
+			type : 'line',
+			width : '100%',
+			height : '90',
+			spotRadius : 4,
+			fillColor : 'transparent',
+			lineColor : '#7f7f00',
+		});
+		$("#temp-trend").sparkline([33, 88, 29, 73], {
+			type : 'line',
+			width : '100%',
+			height : '90',
+			spotRadius : 4,
+			fillColor : 'transparent',
+			lineColor : '#7f7f00',
+		});
+		$("#insulin-trend").sparkline([31, 22, 67, 89], {
+			type : 'line',
+			width : '100%',
+			height : '90',
+			spotRadius : 4,
+			fillColor : 'transparent',
+			lineColor : '#7f7f00',
+		});
+		$("#haloperidol-trend").sparkline([90, 91, 90, 92], {
+			type : 'line',
+			width : '100%',
+			height : '90',
+			spotRadius : 4,
+			fillColor : 'transparent',
+			lineColor : '#7f7f00',
+		});
+		$("#lithium-trend").sparkline([50, 51, 50, 52], {
+			type : 'line',
+			width : '100%',
+			height : '90',
+			spotRadius : 4,
+			fillColor : 'transparent',
+			lineColor : '#7f7f00',
+		});
+	}
+
+
+	$(document).ready(function() {
+		$("#heart-rate-trend").sparkline([90, 86, 73, 84, 95, 64, 83, 92], {
+			type : 'line',
+			width : '100%',
+			height : 20,
+			spotRadius : 4,
+			fillColor : '#f5f5f5',
+			lineColor : '#7f7f00',
+		});
+
+		$("#respiration-trend").sparkline([90, 86, 73, 64, 83, 92], {
+			type : 'line',
+			width : '100%',
+			height : 20,
+			spotRadius : 4,
+			fillColor : '#f5f5f5',
+			lineColor : '#7f7f00',
+		});
+
+		$("#temps-trend").sparkline([87, 54, 77, 99, 54, 23], {
+			type : 'line',
+			width : '100%',
+			height : 20,
+			spotRadius : 4,
+			fillColor : '#f5f5f5',
+			lineColor : '#7f7f00',
+		});
+
+		$("#sp-trend").sparkline([90, 86, 73, 84, 95, 64, 83, 92], {
+			type : 'line',
+			width : '100%',
+			height : 20,
+			spotRadius : 4,
+			fillColor : '#f5f5f5',
+			lineColor : '#7f7f00',
+		});
+
+		$("#bps-trend").sparkline([88, 44, 86, 21, 98, 43, 87, 32, 89], {
+			type : 'line',
+			width : '100%',
+			height : 20,
+			spotRadius : 4,
+			fillColor : '#f5f5f5',
+			lineColor : '#7f7f00',
+		});
+
+		$("#bpd-trend").sparkline([90, 86, 73, 84, 95, 64, 83, 92], {
+			type : 'line',
+			width : '100%',
+			height : 20,
+			spotRadius : 4,
+			fillColor : '#f5f5f5',
+			lineColor : '#7f7f00',
+		});
+
+		//Measurements relevant graphs
+		drawMeasurementTrendLines();
+
+		//visitsDataSet.push([(new Date(2016, 3, 3)).getTime(), 2]);
+
+		insideDataSet.push([(new Date(2016, 5, 5)).getTime(), 4]);
+		insideDataSet.push([(new Date(2016, 5, 7)).getTime(), 3]);
+		insideDataSet.push([(new Date(2016, 5, 9)).getTime(), 10]);
+
+		trendData = [{
+			label : "Visits",
+			data : visitsDataSet,
+			color : '#058DC7'
+		}, {
+			label : "Inside",
+			data : insideDataSet,
+			color : 'green',
+			bars : {
+				show : true
+			}
+		}];
+
+		voltageChart = $.plot($("#visits_chart"), trendData, visitOptions);
+		$('.flot-tick-label').css('color', 'b;acl');
+
+		// ------------------------------- DEBOUNCE CHARTS ---------------------------
+		$(window).smartresize(function() {
+			voltageChart = $.plot($("#visits_chart"), trendData, visitOptions);
+			$('.flot-tick-label').css('color', 'b;acl');
+
+			drawMeasurementTrendLines();
+		});
+
+		// ------------------------------- PATIENT-DOCTORS NETWORK GRAPH ---------------------------
+		// create an array with nodes
+		var nodes = new vis.DataSet(), specializations = ['Pattie Martin\nPatient', 'Dr. Joe\nCardiologist', 'Dr. Sam\nGeneral Physician', 'Dr. Lee\nNeurologist', 'Jr. Scott\nOncologist'];
+		// create an array with edges
+		var edges = new vis.DataSet([{
+			from : 1,
+			to : 3
+		}, {
+			from : 1,
+			to : 2
+		}, {
+			from : 1,
+			to : 4
+		}, {
+			from : 1,
+			to : 5
+		}]);
+
+		$.ajax({
+			url : 'https://randomuser.me/api/?results=5&inc=name,picture',
+			dataType : 'json',
+			success : function(data) {
+				for (var i = 0; i < data.results.length; i += 1) {
+					nodes.add({
+						id : i + 1,
+						label : specializations[i],
+						shape : 'image',
+						image : i == 0 ? "https://api.randomuser.me/portraits/women/81.jpg" : (data.results[i].picture).medium,
+						title : "<div>" + specializations[i] + "</div>"
+					});
+				}
+				// create a network
+				var container = document.getElementById('mynetwork');
+				// provide the data in the vis format
+				var data = {
+					nodes : nodes,
+					edges : edges
+				};
+				var options = {
+					clickToUse : true,
+					nodes : {
+						borderWidth : 1,
+						size : 30,
+						color : {
+							border : '#333',
+							background : '#111'
+						},
+						font : {
+							color : '#222'
+						},
+						shapeProperties : {
+							useBorderWithImage : true
+						}
+					},
+				};
+				// initialize your network!
+				var network = new vis.Network(container, data, options);
+			}
+		});
+	});
+
+	//blueimg gallery
+	document.getElementById('images-container').onclick = function(event) {
+		event = event || window.event;
+		var target = event.target || event.srcElement, link = target.src ? target.parentNode : target, options = {
+			index : link,
+			event : event
+		}, links = this.getElementsByTagName('a');
+		blueimp.Gallery(links, options);
+	};
+
+	$("h4").click(function(e) {
+		$("#fullscreen_stage").load("screens/search_form1.html");
+		showFullScreen();
+	});
+
+	$("#genogram-pic").load("screens/genogram-chart.html");
+
+</script>

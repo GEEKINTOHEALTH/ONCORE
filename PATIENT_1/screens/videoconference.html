@@ -1,0 +1,48 @@
+<div class="container" style="margin-top:25px;background-color: white;">
+	<div class="row text-center">
+		<div class="col-md-12 text-center" style="margin-top: 25px;">
+			<iframe id="appearin-room" width="500" height="350" style="box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;">
+				&nbsp;
+			</iframe>
+		</div>
+	</div>
+	<div class="row text-center">
+		<div class="col-md-6 col-lg-offset-3 text-center" style="margin-top: 10px;">
+			<!-- a id="video_link" class="btn btn-primary btn-md" href=""> Send Invitation for Video Conference </a -->
+			<p class="" style="text-align: justify;margin-top: 10px;">
+				<img src="https://cdn0.iconfinder.com/data/icons/ballicons/128/video-128.png" alt="" class="pull-left" style="margin-right:10px;"/>
+				When ready, press the enter room button above to begin the conference. Send the link to the participants by clicking on the send invitaion button. More than one person can join the conference.
+			</p>
+		</div>
+	</div>
+	<br />
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://iswebrtcready.appear.in/apiv2.js"></script>
+<script>
+	var randomRoomNameGenerator = function() {
+		var alphabet = 'qwertyuiopasdfghjklzxcvbnm1234567890';
+		var roomNameLength = 30;
+		var roomName = '';
+		// repeat this 30 times
+		for (var i = 0; i < roomNameLength; i++) {
+			var character = alphabet[Math.round(Math.random() * (alphabet.length - 1))];
+			roomName = roomName + character;
+		}
+		//roomName = 'https://appear.in/' + roomName + '?lite';
+		roomName = 'https://appear.in/nandiraju?lite';
+		return roomName;
+	};
+	$(document).ready(function() {
+		$('body').css('background-color', '#f5f5f5');
+		var roomName = randomRoomNameGenerator();
+		console.log(roomName);
+		//$("#video_link").html(roomName);
+		var mailString = "mailto:srasesh@yahoo.com?Subject=" + roomName;
+		$("#video_link").attr("href", mailString);
+		var iframe = document.getElementById('appearin-room');
+		iframe.setAttribute('src', roomName);
+	});
+
+</script>

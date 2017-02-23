@@ -1,0 +1,187 @@
+<div class="container" style="margin-top:50px;">
+	
+	
+	
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="page-header">
+				<h1> Case Items<small style="color:silver;"> add documents to your case</small></h1>
+				<hr />
+				<p>
+					Even the smallest enhancement to the diagnosis or treatment plan, due to a second opinion, can make a world of difference when you’re dealing with a serious illness. As a HealthBnb member, you can have top specialists weigh in on your condition, when you need them to. Please provide all dignosys documents for your case.
+				</p>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<div class="row clearfix" style="text-align: right;">
+		<a id="modal-959951" href="#case_item_model" role="button" class="btn btn-warning" data-toggle="modal"> <i class="fa fa-plus fa-lg"></i>&nbsp;&nbsp;Add a medical report</a>
+		<br />
+		<br />
+	</div>
+	<div class="row clearfix" id="case_list_table">
+		<div class="col-md-12 column">
+			<table class="table table-condensed  table-hover">
+				<thead>
+					<tr>
+						<th> # </th>
+						<th> Title </th>
+						<th> Description </th>
+						<th> Date </th>
+						<th> Doctor </th>
+						<th> Attachements </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> 1 </td>
+						<td> EKG Report </td>
+						<td> Report from Labs </td>
+						<td> 01/04/2013 </td>
+						<td> Dr. Shah </td>
+						<td><i class="fa fa-paperclip"></i></td>
+
+					</tr>
+					<tr>
+						<td> 2 </td>
+						<td> CBC Report </td>
+						<td> Complete blood report </td>
+						<td> 01/04/2014 </td>
+						<td> Dr. Pal </td>
+						<td><i class="fa fa-paperclip"></i></td>
+
+					</tr>
+					<tr>
+						<td> 3 </td>
+						<td> X-Ray Report </td>
+						<td> Chest X-Ray </td>
+						<td> 04/04/2014 </td>
+						<td> Dr. Patel </td>
+						<td><i class="fa fa-paperclip"></i></td>
+
+					</tr>
+
+				</tbody>
+			</table>
+			<div class="row clearfix" style="text-align: right;">
+				<a id="caseitems_next_button" href="#/my_cases" role="button" class="btn btn-primary"> <i class="fa fa-check fa-lg"></i>&nbsp;&nbsp;Create Case</a>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
+<div class="modal fade" id="case_item_model" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="background-color:#0088CC;color:white;">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:white;">
+					×
+				</button>
+				<h4 class="modal-title" id="myModalLabel" style="color:white;"> Medical Report </h4>
+			</div>
+			<div class="modal-body">
+
+				<form role="form">
+					<div class="tabbable" id="tabs-707484">
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#new_report_tab" data-toggle="tab">Add New Report</a>
+							</li>
+							<li>
+								<a href="#medical_history_tab" data-toggle="tab">Add from Medical History</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="new_report_tab">
+								<br />
+								<div class="form-group">
+									<label for="case_title">Report Title</label>
+									<input type="email" name="case_title" id="case_title" class="form-control input-sm" placeholder="Enter case title">
+								</div>
+								<div class="form-group">
+									<label for="case_description">Report Description</label>
+									<textarea id="case_description" class="form-control input-sm" placeholder="Enter case description"></textarea>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label for="case_doctor">Referring Dr. </label>
+											<input type="email" name="case_doctor" id="case_doctor" class="form-control input-sm" placeholder="Enter case title">
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label for="case_date">Report Date</label>
+											<input type="email" name="case_date" id="case_date" class="form-control input-sm" placeholder="Enter case title">
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label for="case_description">Attachment Type</label>
+											<select data-events="change=otherCuisine" id="cuisine" name="cuisine" class="form-control" >
+												<option selected="selected" value="">Select a type</option>
+												<option value="1">PDF</option>
+												<option value="2">Images</option>
+												<option value="3">DICOM</option>
+												<option value="4">JPEG2000</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label for="exampleInputFile">Attach related documents</label>
+											<input id="exampleInputFile" type="file" />
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="tab-pane" id="medical_history_tab">
+								<br />
+								<div class="form-group">
+									<label for="case_description">Add from Medical history</label>
+									<select data-events="change=otherCuisine" id="cuisine" name="cuisine" class="form-control" >
+										<option selected="selected" value="">Select a report</option>
+										<option value="1">X-Ray Report </option>
+										<option value="2">CBC</option>
+										<option value="3">Radiology</option>
+										<option value="3">Pathology</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+					Close
+				</button>
+				<button id="save_report_button" type="button" class="btn btn-primary">
+					Save Report
+				</button>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+<script type="text/javascript" charset="utf-8">
+	(function() {
+		$("#case_list_table").hide();
+		$("#save_report_button").click(function() {
+			$("#case_item_model").modal("hide");
+			$("#case_list_table").show();
+		});
+	})(); 
+</script>

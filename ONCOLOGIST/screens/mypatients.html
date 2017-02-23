@@ -1,0 +1,60 @@
+<div class="container card" style="margin-top:20px;background-color: white;padding:0px 50px">
+	<div class="row clearfix">
+		<div class="col-md-12 column text-left">
+				<h1>Cases<small style="color:silver;">&nbsp;my patient cases</small></h1>
+				<hr />
+				<p>
+					The following are list of cases for your account.
+					&nbsp;Drafts <span class="badge alert-warning">1</span> &nbsp;Completed <span class="badge alert-success">2</span> &nbsp;Started <span class="badge alert-info">1</span>
+				</p>
+		</div>
+	</div>
+
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table   table-hover" style="margin-bottom: 50px;">
+				<thead>
+					<tr>
+						<th> # </th>
+						<th> Title </th>
+						<th> Start Date </th>
+						<th> Status </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-toggle="tooltip" data-original-title="TR here to view details">
+						<td> 1 </td>
+						<td><a style="color:black" data-toggle="tooltip" data-original-title="Click here to view the details of this case." href="#/onepatient">Patti Martin</a></td>
+						<td> 01/04/2012 </td>
+						<td> Draft </td>
+					</tr>
+					<tr>
+						<td> 2 </td>
+						<td><a style="color:black">Tumour</a></td>
+						<td> 01/04/2012 </td>
+						<td> Started </td>
+					</tr>
+					<tr>
+						<td> 3 </td>
+						<td><a style="color:black" onclick="$('body').trigger('full_profile_view');"> Dental </a></td>
+						<td> 01/04/2012 </td>
+						<td> Completed </td>
+					</tr>
+					<tr>
+						<td> 4 </td>
+						<td><a style="color:black" onclick="$('body').trigger('full_profile_view');">Ear</a></td>
+						<td> 01/02/2014 </td>
+						<td> Completed </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script>
+	(function() {
+		$('a').tooltip();
+		//$('tr').tooltip();
+	})(); 
+</script>
+

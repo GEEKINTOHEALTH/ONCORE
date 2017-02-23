@@ -1,0 +1,243 @@
+<div class="container" style="width:90%">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="page-header">
+				<h1> Doctor Notes <small style="color:silver;">list of notes from your doctors</small></h1>
+				<hr />
+				<p>
+					Enter any notes from your doctor on your past treatments or conditions.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="row clearfix" style="text-align: right;">
+		<a class="btn btn-primary" id="addButton"> <i class="fa fa-plus fa-lg"></i>&nbsp;&nbsp;Add Notes</a>
+		<br />
+		<br />
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column" id="table_container"></div>
+	</div>
+	<div class="row clearfix centered" >
+		<br />
+		<a class="btn btn-info" href="#/treatments"> <i class="fa fa-arrow-circle-o-left  fa-lg"></i>&nbsp;&nbsp;Back</a>
+		<a class="btn btn-warning" href="#"> <i class="fa fa-check-circle-o  fa-lg"></i>&nbsp;&nbsp;Save</a>
+		<a class="btn btn-info" href="#/pathology"> <i class="fa fa-arrow-circle-o-right  fa-lg"></i>&nbsp;&nbsp;Go to Next Step</a>
+	</div>
+</div>
+
+<script id="doctornotes_table_template" type="text/template">
+	<table class="table table-hover table-condensed">
+	<thead>
+	<tr>
+	<th> # </th>
+	<th> Date </th>
+	<th> Doctor </th>
+	<th> Speciality </th>
+	<th> Action </th>
+	</tr>
+	</thead>
+	<tbody >
+	{{#rows}}
+	<tr>
+	<td width="1%"></td>
+	<td> {{date}} </td>
+	<td> {{doctor}} </td>
+	<td width="30%"> {{speciality}} </td>
+	<td> <a href="" data-toggle="tooltip" data-original-title="Edit"><i row-id="{{id}}" class="fa fa-pencil-square-o fa-lg edit_button"></i></a>
+	<a href="" data-toggle="tooltip" data-original-title="Delete"><i row-id="{{id}}" class="fa fa-trash-o  fa-lg delete_button"></i></a>
+	</tr>
+	{{/rows}}
+
+	</tbody>
+
+	</table>
+
+</script>
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="modal fade" id="modal_form" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								X
+							</button>
+							<h4 class="modal-title" id="myModalLabel"> Doctor Notes </h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" id="item_form">
+								<input id="item_id" name="item_id" type="hidden">
+								<fieldset>
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="name">Doctor</label>
+										<div class="col-md-4">
+											<input id="doctor" name="doctor" placeholder="enter doctor" class="form-control input-md" type="text">
+										</div>
+									</div>
+
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="speciality">Speciality</label>
+										<div class="col-md-4">
+											<input id="speciality" name="speciality" placeholder="enter speciality" class="form-control input-md" type="text">
+										</div>
+									</div>
+
+									<div class="form-group" id="date_holder">
+										<label class="col-md-4 control-label" for="date">Date</label>
+										<div class="col-md-4">
+											<input type="text" id="date" class="form-control input-md">
+										</div>
+									</div>
+
+									<!-- Textarea -->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="desc">Attach Notes</label>
+										<div class="col-md-4">
+											<input type="file" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="desc">Attachement</label>
+										<div class="col-md-4">
+											<iframe id="preview_frame" name="preview_frame" frameborder="0" src="" width="300" height="200"></iframe>
+										</div>
+									</div>
+								</fieldset>
+							</form>
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Close
+							</button>
+							<button id="saveButton" type="button" class="btn btn-primary">
+								Save
+							</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var screenItems = new LocalTable("user.doctor_notes_table");
+
+	function renderTableUI(data) {
+		var template = $('#doctornotes_table_template').html();
+		var html = Mustache.to_html(template, {
+			rows : data
+		});
+		$("#table_container").html(html).fadeIn('slow');
+		$('a').tooltip();
+	}
+
+	function refreshView() {
+		renderTableUI(screenItems.getRows());
+	}
+
+	function loadSampleNotes() {
+		var allNotes = sample_case.doctor_notes;
+
+		for (var i = 0; i < allNotes.length; i++) {
+			var oneItem = {};
+			/*var existingDemoObject = screenItems.findRow(allNotes[i].id);
+
+			 if (existingDemoObject) {
+			 oneItem = existingDemoObject;
+			 } else {
+			 //oneItem.id = allNotes[i].id;
+			 oneItem.id = new Date().getTime();
+			 screenItems.addRow(oneItem);
+			 }*/
+
+			oneItem.id = i;
+			oneItem.date = allNotes[i].date;
+			oneItem.doctor = allNotes[i].doctor;
+			oneItem.speciality = allNotes[i].speciality;
+			oneItem.attachement = allNotes[i].attachment;
+			//oneItem.notes = allTreatments[i].description;
+
+			screenItems.addRow(oneItem);
+		}
+		//screenItems.save();
+	}
+
+	(function() {
+		//screenItems.load();
+		screenItems.truncate();
+		loadSampleNotes();
+
+		var dp = $('#date').datepicker();
+		dp.on('changeDate', function(e) {
+			console.log(JSON.stringify(e.date));
+			console.log($("#date_value").val());
+			dp.datepicker('hide');
+		});
+
+		renderTableUI(screenItems.getRows());
+
+		$("#addButton").click(function() {
+			$("#item_id").val('');
+			$('#item_form').resetForm();
+			$('#modal_form').modal('show');
+		});
+
+		$("#saveButton").click(function() {
+			var currentId = $("#item_id").val();
+			var oneItem = {};
+			if (currentId != '') {
+				oneItem = screenItems.findRow(currentId);
+				console.log("Existing item case.");
+			} else {
+				oneItem.id = new Date().getTime();
+				screenItems.addRow(oneItem);
+				console.log("New item case");
+			}
+			oneItem.doctor = $("#doctor").val();
+			oneItem.date = $("#date").val();
+			oneItem.speciality = $("#speciality").val();
+			oneItem.attachement = "attachement " + new Date();
+
+			screenItems.save();
+			$("#item_id").val('');
+			// Update View
+			refreshView();
+			$('#modal_form').modal('hide');
+			$('#item_form').resetForm();
+		});
+
+		$('body').on('click', '.edit_button', function(event) {
+			event.preventDefault();
+			var selectedId = $(this).attr('row-id');
+			var selectedObject = screenItems.findRow(selectedId);
+			$("#speciality").val(selectedObject.speciality);
+			$("#doctor").val(selectedObject.doctor);
+			$("#date").val(selectedObject.date);
+			$("#item_id").val(selectedObject.id);
+
+			$("#preview_frame").attr('src', selectedObject.attachement);
+
+			$('#modal_form').modal('show');
+		});
+
+		$('body').on('click', '.delete_button', function(event) {
+			event.preventDefault();
+			var selectedId = $(this).attr('row-id');
+			screenItems.deleteRow(selectedId);
+			screenItems.save();
+			refreshView();
+		});
+	})(); 
+</script>
+

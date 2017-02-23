@@ -1,0 +1,132 @@
+<div class="container" style="margin-top:100px;background-color: white;padding:0px 50px">
+	<div class="row clearfix">
+		<div class="col-md-2 column text-left">
+			<img class="img-thumbnail" style="margin-top: 50px;" src="http://www.avcancercenter.com/image/71957319.png" alt="" />
+		</div>
+		<div class="col-md-10 column">
+			<h1 class="well well-sm" style="margin-left:5px;margin-top: 50px;">Welcome Dr. Shah</h1>
+			<span id="date_text" style="color:gray;margin-left: 5px;"></span>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="page-header">
+				<h3>Pending<small style="color:silver;">&nbsp;cases</small></h3>
+			</div>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-condensed  table-hover">
+				<thead>
+					<tr>
+						<th> # </th>
+						<th> Title </th>
+						<th> Start Date </th>
+						<th> Status </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-toggle="tooltip" data-original-title="TR here to view details">
+						<td> 1 </td>
+						<td><a data-toggle="tooltip" data-original-title="Click here to view the details of this case." href="#/case_wizard">Knee replacement</a></td>
+						<td> 01/04/2012 </td>
+						<td> Draft </td>
+					</tr>
+					<tr>
+						<td> 2 </td>
+						<td><a href="#/case_wizard">Tumour</a></td>
+						<td> 01/04/2012 </td>
+						<td> Started </td>
+					</tr>
+					<tr>
+						<td> 3 </td>
+						<td><a href="#/case_wizard"> Dental </a></td>
+						<td> 01/04/2012 </td>
+						<td> Started </td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="page-header">
+				<h3>Completed<small style="color:silver;">&nbsp;cases</small></h3>
+			</div>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-condensed  table-hover">
+				<thead>
+					<tr>
+						<th> # </th>
+						<th> Title </th>
+						<th> Start Date </th>
+						<th> Status </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> 3 </td>
+						<td><a href="#/case_wizard"> Dental </a></td>
+						<td> 01/04/2012 </td>
+						<td> Completed </td>
+					</tr>
+					<tr>
+						<td> 4 </td>
+						<td><a href="#/case_wizard">Ear</a></td>
+						<td> 01/02/2014 </td>
+						<td> Completed </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="page-header">
+				<h3>Messages<small style="color:silver;">&nbsp;</small></h3>
+			</div>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-condensed  table-hover">
+				<thead>
+					<tr>
+						<th> # </th>
+						<th> Title </th>
+						<th> Start Date </th>
+						<th> Status </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> 3 </td>
+						<td><a href="#/case_wizard"> Dental </a></td>
+						<td> 01/04/2012 </td>
+						<td> Completed </td>
+					</tr>
+					<tr>
+						<td> 4 </td>
+						<td><a href="#/case_wizard">Ear</a></td>
+						<td> 01/02/2014 </td>
+						<td> Completed </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script>
+	(function() {
+		$('a').tooltip();
+		//$('tr').tooltip();
+		$("#date_text").html(new Date());
+		
+	})(); 
+</script>
+
